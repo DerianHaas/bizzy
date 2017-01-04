@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "C:\\Users\\Derian\\Documents\\Android\\Bizzy\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-en-rCA\\values-en-rCA.xml",
+        "outputFile": "C:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-en-rCA\\values-en-rCA.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,7 @@
                     "endOffset": 154
                 },
                 "from": {
-                    "file": "C:\\Users\\Derian\\Documents\\Android\\Bizzy\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-wallet\\10.0.1\\res\\values-en-rCA\\values.xml",
+                    "file": "C:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-wallet\\10.0.1\\res\\values-en-rCA\\values.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 0,

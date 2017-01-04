@@ -8,6 +8,8 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import java.util.HashSet;
 import java.util.Set;
 
+import static android.R.attr.shape;
+
 /**
  * Created by Derian on 12/29/2016.
  */
@@ -79,5 +81,17 @@ public class Group {
         building = b;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof  Group)) {
+            return false;
+        }
+        Group g = (Group) obj;
+        return g.location.equals(location) && g.people.equals(people);
+    }
 
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
 }

@@ -73,4 +73,18 @@ public class Building {
     public Marker getCenterMarker() {
         return center;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof  Building)) {
+            return false;
+        }
+        Building b = (Building) obj;
+        return b.shape.getPoints().equals(shape.getPoints());
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
 }
