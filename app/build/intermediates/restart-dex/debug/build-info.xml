@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<instant-run
+    abi="x86"
+    api-level="24"
+    density="xxhdpi"
+    format="8"
+    plugin-version="2.2.2"
+    timestamp="107655745601717"
+    token="5275164841535147684"
+    verifier="COMPATIBLE" >
+
+    <task
+        name="javac"
+        duration="310" />
+    <task
+        name="instant-run-dex"
+        duration="23" />
+    <task
+        name="instant-run-transform"
+        duration="89" />
+    <task
+        name="verifier"
+        duration="10" />
+
+    <artifact
+        location="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\reload-dex\debug\classes.dex"
+        type="RELOAD_DEX" />
+
+    <build
+        timestamp="106203907388466"
+        verifier="MANIFEST_FILE_CHANGE" >
+        <artifact
+            location="C:\Users\Derian\Documents\Android\Bizzy\app\build\outputs\apk\app-debug.apk"
+            type="MAIN" />
+    </build>
+    <build
+        timestamp="107586545084981"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_7\classes.dex"
+            type="DEX" />
+    </build>
+    <build
+        timestamp="107621824003584"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\builds\debug\107621824003584\classes.dex"
+            type="RELOAD_DEX" />
+    </build>
+    <build
+        timestamp="107655745601717"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\reload-dex\debug\classes.dex"
+            type="RELOAD_DEX" />
+    </build>
+
+</instant-run>
