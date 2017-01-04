@@ -3,219 +3,219 @@
 
     <item
         is-multidex="true"
-        jar="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\exploded-aar\com.google.firebase\firebase-storage\10.0.1\jars\classes.jar"
+        jar="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\exploded-aar\com.google.firebase\firebase-storage\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="dd39827d2067497e60e21da48a7926000b6d4b0c">
-        <dex dex="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-storage-10.0.1_843eee3f8fec14729dfc2bff86d14161879b4ca4\classes.dex" />
+        <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-storage-10.0.1_80007e75da8df0df820f78990ec86f6c89ed5b2f\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads-lite\10.0.1\jars\classes.jar"
+        jar="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads-lite\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="b955cb3a1ad6f1b6ff728ce1e0cd592c1717b440">
-        <dex dex="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-ads-lite-10.0.1_1c3d1dd499c6576b636e5b0f422dee00238dd10a\classes.dex" />
+        <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-ads-lite-10.0.1_dad27964a321317e6133aaad482c4935ab0d7a20\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wearable\10.0.1\jars\classes.jar"
+        jar="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wearable\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="408a599ac77cd17fe8e8919326bec617b3d005bd">
-        <dex dex="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-wearable-10.0.1_815671198dc58a86cebc79e2b0068b97d23ba85a\classes.dex" />
+        <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-wearable-10.0.1_2113860ed8c83b50d884e1bbfdfbf095e59bf76b\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics\10.0.1\jars\classes.jar"
+        jar="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="433f4d6aa5f21f19552afe0e6c5eff0fedba73ad">
-        <dex dex="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-10.0.1_1cf0662b082c802fdc193f85c7b3c0ee8e564c9d\classes.dex" />
+        <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-10.0.1_b325ae8312348ac045e6b057516971b3b1eb1b40\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\exploded-aar\com.google.firebase\firebase-crash\10.0.1\jars\classes.jar"
+        jar="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\exploded-aar\com.google.firebase\firebase-crash\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="de29a39f9260f88151b1ef453140e71c76b6c415">
-        <dex dex="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-crash-10.0.1_b495d2e6035cc38e710e2908482bc31034d6baca\classes.dex" />
+        <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-crash-10.0.1_d4567811e9f86634c47d298e70352da6c0543acb\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\10.0.1\jars\classes.jar"
+        jar="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="d0460bf07cc3657e0be518ca01c174493951c6b8">
-        <dex dex="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-ads-10.0.1_4c7ed4e874dbf9854e899d507a63cded12b444fe\classes.dex" />
+        <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-ads-10.0.1_9e7d98bd40c35612e7dba0d6efe4ee3077afebf9\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jar="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
-        <dex dex="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_777056b2955a949e0579d34d089e5ab515be7e6f\classes.dex" />
+        <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_e81d2458c5b73f416604e2c99964d2ce7b517e3b\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\exploded-aar\com.google.firebase\firebase-iid\10.0.1\jars\classes.jar"
+        jar="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\exploded-aar\com.google.firebase\firebase-iid\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="486371f97baad8e607f332f20fee1d3dd00a731a">
-        <dex dex="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-iid-10.0.1_cb3a53a6f9167992682ff8b375be91bee315c4ca\classes.dex" />
+        <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-iid-10.0.1_eae0502b8520f391cde71cb6d9cd699bead966c9\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\exploded-aar\com.google.firebase\firebase-appindexing\10.0.1\jars\classes.jar"
+        jar="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\exploded-aar\com.google.firebase\firebase-appindexing\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="ae80d328a8548b4610ead6c624bab8c6a6984f5b">
-        <dex dex="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-appindexing-10.0.1_2fb73403ae254e06365d772efec801663775d3c9\classes.dex" />
+        <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-appindexing-10.0.1_2724d0d16e44364e48f52c4e210a4d2c466174ec\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth-base\10.0.1\jars\classes.jar"
+        jar="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth-base\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="e96c6974cf924e7ee3b230e6847d5731423388c9">
-        <dex dex="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-auth-base-10.0.1_30f8a19dc0fd37a34b875632157c5b3800bd1e1c\classes.dex" />
+        <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-auth-base-10.0.1_a2b6773deab017cb29cafc6d2eaf100646829704\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\classes.jar"
+        jar="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
-        <dex dex="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-24.2.1_06e7f88463058d2f9ab4dd7ff260f577e16ee0ba\classes.dex" />
+        <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-24.2.1_081e5e5e84d806dc290c4282498a276f4216125e\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\exploded-aar\com.google.firebase\firebase-config\10.0.1\jars\classes.jar"
+        jar="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\exploded-aar\com.google.firebase\firebase-config\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="ffc15e965a9e8c28f24455eedd4cac215c45d1fc">
-        <dex dex="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-config-10.0.1_640d3582268b84ae39de54af291a7a26d30ff28f\classes.dex" />
+        <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-config-10.0.1_84111dc8c2f380d8627c7aee57726abb3503059a\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jar="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\libs\internal_impl-24.2.1.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="867dad63c33388ff8c7644b236579355036d075f">
-        <dex dex="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_399262006ac662cee058f3f5b94d0de69e9e3cfb\classes.dex" />
+        <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_e22d58a8fe25bf3eb8613d15a0a24b137573b42d\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jar="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
-        sha1="cd218614cd9c7e1d9de04484457a0178ad2639c2">
-        <dex dex="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_1a5a6c258f4c89b49e3af06b488cd6792806c1ad\classes.dex" />
+        sha1="a085091f761c78856e9d04324ed0df4ce76377bf">
+        <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_2671fcd36a92deba13ee27fb40c12e3768c4044e\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jar="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\libs\internal_impl-24.2.1.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
-        <dex dex="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_4f4695ba1334f747321971d1f3b1b195e05fc24e\classes.dex" />
+        <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_7ecbd0861cd347e7702d9562e764454d494fd56a\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jar="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
-        <dex dex="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_f59cd503642cb801aba6bc35b0abf267b3588766\classes.dex" />
+        <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_1608a4246c563e6c641a3d58a6d222f225ccc90d\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jar="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
-        sha1="878b37d9456de0e27c576d764a3b5aad65a67d53">
-        <dex dex="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_7c985d9aadfcc84bc65d681368f7bb4fb4be3614\classes.dex" />
+        sha1="10a4d55f5521240df93c16d0d4c7e6904450c6a2">
+        <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_5d4e50efbbbe0f7195bd222c7a0667783e63bc84\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-drive\10.0.1\jars\classes.jar"
+        jar="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-drive\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="028f8255cb977b29cdffbfcf05caa0459686120c">
-        <dex dex="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-drive-10.0.1_a100d0e294bbb8310dad4ee06c93fb67a43f80f9\classes.dex" />
+        <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-drive-10.0.1_7b4535ab949bdcbecc1fdc9da8669c4b5b92780e\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tagmanager\10.0.1\jars\classes.jar"
+        jar="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tagmanager\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="971509bbe30bb7b971fc1c49d7b23d0d818830ac">
-        <dex dex="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tagmanager-10.0.1_83bea1e61b4a30e52036f147ceba1e86813b9dcd\classes.dex" />
+        <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tagmanager-10.0.1_4bc2bee13d035ffd0bc200cead90bc1b90b328ad\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.2.1\jars\classes.jar"
+        jar="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.2.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
-        <dex dex="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-24.2.1_f6889276e49be08d908a594d566823683f702690\classes.dex" />
+        <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-24.2.1_83839a04c69da236c94fbdff939b404145668bac\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.1\jars\classes.jar"
+        jar="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-24.2.1_390efa1325abeb43a8c84a09b6c2b74173c239b3\classes.dex" />
+        <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-24.2.1_efc64178d84c9e500b554bc38c055a4e53f65a4f\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast-framework\10.0.1\jars\classes.jar"
+        jar="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast-framework\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="df1cb17511aabbb63264a0024949d1e42502a512">
-        <dex dex="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-cast-framework-10.0.1_e300bf3d13eaaf653d45f6ba5335123e70a966fa\classes.dex" />
+        <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-cast-framework-10.0.1_d3680325f909bea6c7347e2e1df1daafd0aa7325\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\classes.jar"
+        jar="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
-        <dex dex="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-compat-24.2.1_1d59d2d3585e1d560cf581a7508f451a8d4e8702\classes.dex" />
+        <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-compat-24.2.1_24ea2df042750afea4c0478e47b20570e391af43\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\classes.jar"
+        jar="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
-        <dex dex="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-fragment-24.2.1_3d19e63c4cf39ae379eab52a88d6732d553faa47\classes.dex" />
+        <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-fragment-24.2.1_ef9e0c1109348fdd465ed9f57d9d2d7c2273d3bc\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -224,403 +224,403 @@
         optimize="true"
         revision="25.0.1"
         sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
-        <dex dex="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-24.2.1_a19d1594cb25f770fe7618d18f8938fb626e536e\classes.dex" />
+        <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-24.2.1_a19d1594cb25f770fe7618d18f8938fb626e536e\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\10.0.1\jars\classes.jar"
+        jar="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="25438f55fc6d906a0e72f30b21487541430ede43">
-        <dex dex="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-base-10.0.1_c9ad98f07e9d62756fd21d7aa7170a1bb893e080\classes.dex" />
+        <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-base-10.0.1_a028e999832dab3db54c95b179128959067153dc\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\10.0.1\jars\classes.jar"
+        jar="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="27777b3cad3c20b1acab19f6e37fe3e03371bf6e">
-        <dex dex="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-maps-10.0.1_52eed43bad4e28e798c5925ffc8a8bc57cbe9954\classes.dex" />
+        <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-maps-10.0.1_2f7df1f569ee33000837b73acf109380b075d489\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-fitness\10.0.1\jars\classes.jar"
+        jar="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-fitness\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="7a64bf6dc775198eed9db9468a133adf7dfe6562">
-        <dex dex="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-fitness-10.0.1_561e7116ddcff5a61144b447ff5104291f213ccc\classes.dex" />
+        <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-fitness-10.0.1_edea5bb4cd11f7aa14a701b3c83f478b5e8bbf97\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\10.0.1\jars\classes.jar"
+        jar="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="44a694d4095be84c2888764b1f7256b385c030ad">
-        <dex dex="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-location-10.0.1_48de123bdce753f52336b651d5586aca3b4090d7\classes.dex" />
+        <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-location-10.0.1_9b20e60d7ad6f68a15f027bde86e7ba4c6a5f0e0\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics-impl\10.0.1\jars\classes.jar"
+        jar="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics-impl\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="6116e0e7069de7fc259aac8e08b84f32c2038231">
-        <dex dex="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-impl-10.0.1_e1eb542996e5fee2a09c608604919a90b879a0ad\classes.dex" />
+        <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-impl-10.0.1_7320d9f2d191bc0b6efaf3d08159504e1982bf96\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gass\10.0.1\jars\classes.jar"
+        jar="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gass\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="57c2eceb8548de84509d1ebc293fedec53231f6c">
-        <dex dex="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-gass-10.0.1_d442401f0b16a768c9eb97023392aa08675bd756\classes.dex" />
+        <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-gass-10.0.1_a4b8744ebea80f3c902d7959b32f3a5463f83b30\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wallet\10.0.1\jars\classes.jar"
+        jar="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wallet\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="2d5d113b0352ab60946fc44c518cf68fd26cbb79">
-        <dex dex="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-wallet-10.0.1_b3324157ae11829556f31fffbc0b06795c25ce7f\classes.dex" />
+        <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-wallet-10.0.1_d710343c82afdec0bbfa2392039c879f0423fc6c\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\exploded-aar\com.google.firebase\firebase-common\10.0.1\jars\classes.jar"
+        jar="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\exploded-aar\com.google.firebase\firebase-common\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="eb0d830e3eabb9deb9ec44869cf7ac7ea1ad794c">
-        <dex dex="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-common-10.0.1_546ff2573e8f1bf7a6c3396e0a5ad8fb1d6bb1f0\classes.dex" />
+        <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-common-10.0.1_64fcc63c7634b714210077d6905ec1f6852ada3b\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\10.0.1\jars\classes.jar"
+        jar="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="4c829ff0ccfecb28a999ee46d9e75948dfc777a4">
-        <dex dex="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-analytics-10.0.1_b1a84382456df173d9e10a9a0ee36a1daba8c6b9\classes.dex" />
+        <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-analytics-10.0.1_a06d73a01506adf4199701ecd8a791701b834d94\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth\10.0.1\jars\classes.jar"
+        jar="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="e2185aff89caeb337b1ffc36d5e525d8318e7cfe">
-        <dex dex="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-auth-10.0.1_93f4a3e750740b26b9146e2cae328a987338ecd3\classes.dex" />
+        <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-auth-10.0.1_06ef4c452b9ad59e6dd7509472e225cae36f1ae5\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-instantapps\10.0.1\jars\classes.jar"
+        jar="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-instantapps\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="45305e6af414dab5aba6c3225081c2f15c3bdd1e">
-        <dex dex="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-instantapps-10.0.1_a3162794aaba821110645da0694a567243104460\classes.dex" />
+        <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-instantapps-10.0.1_f72297793101e26deb832be96dea2d4e8c1e45fb\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.2.1\jars\classes.jar"
+        jar="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.2.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
-        <dex dex="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-24.2.1_9907da2dc5e07fb37d8a6acca0017289a2f49ed3\classes.dex" />
+        <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-24.2.1_7d377a08858cf333295200fb81c09825d0782480\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\24.0.0\jars\classes.jar"
+        jar="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\24.0.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="b327fbe2fad414bc38cf0ce8f7efe1a38f572837">
-        <dex dex="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-mediarouter-v7-24.0.0_4975773d9950f221f58285aecf185697e17c14c0\classes.dex" />
+        <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-mediarouter-v7-24.0.0_0198d4777ab3d51a5b47313f964dcce2dde60ca0\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth\10.0.1\jars\classes.jar"
+        jar="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="9cca2818594cc5348806d6662133491e7ea0fa8d">
-        <dex dex="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-auth-10.0.1_59119e4863aff1c07b9db15fd9300e3013515844\classes.dex" />
+        <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-auth-10.0.1_e94b35c820d2b8d6d8c8f694051b88595601e74e\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tagmanager-v4-impl\10.0.1\jars\classes.jar"
+        jar="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tagmanager-v4-impl\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="f23ad0f8e58713ff4b55f61c0bbde3830378347c">
-        <dex dex="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tagmanager-v4-impl-10.0.1_ed6713019d6662edbe51fde75132f68808262a49\classes.dex" />
+        <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tagmanager-v4-impl-10.0.1_711b497b2b82fd4a17f553b6f1f0021f0125866d\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-games\10.0.1\jars\classes.jar"
+        jar="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-games\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="1e11c68fec92a17c84dd8d1dd80e74c4e67b12e2">
-        <dex dex="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-games-10.0.1_807ce2f8dfe0220c69a7bb23f7f0459009b5405b\classes.dex" />
+        <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-games-10.0.1_ff86369f94e267ad5765252d12ec2439abbcf1b1\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-identity\10.0.1\jars\classes.jar"
+        jar="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-identity\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="a48dc0b148059764d32500be558702d5ff932058">
-        <dex dex="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-identity-10.0.1_cfd44a63c69f3cc9e8ac1b583bc6a2cf75eabc42\classes.dex" />
+        <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-identity-10.0.1_cb9625c66600693fec992a76f819e5d74da6433d\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-clearcut\10.0.1\jars\classes.jar"
+        jar="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-clearcut\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="1d193729baf37df3d902a423291423a0df7e3779">
-        <dex dex="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-clearcut-10.0.1_505a653d1bd59e79e5a78ec719f28a66294d975a\classes.dex" />
+        <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-clearcut-10.0.1_ba7ab69368750c938b8792fc32e79bc8ca2694ab\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast\10.0.1\jars\classes.jar"
+        jar="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="771267c5b0c7a5b348d3205dcfa1f871af7e0177">
-        <dex dex="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-cast-10.0.1_476cf62c42cd7f6803330f3554c0feed7fa29545\classes.dex" />
+        <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-cast-10.0.1_0f6631b64010b3a5efc941820e568a332a580686\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\exploded-aar\com.google.maps.android\android-maps-utils\0.4.4\jars\classes.jar"
+        jar="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\exploded-aar\com.google.maps.android\android-maps-utils\0.4.4\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="6f57b76211a1d7b0c1f18873af59faad95664681">
-        <dex dex="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.maps.android-android-maps-utils-0.4.4_fff622055c2936f1940ded3ce8cd0765ae74a250\classes.dex" />
+        <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.maps.android-android-maps-utils-0.4.4_7e2b5094b2bd1148256e3dbc7ed567912642fad9\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-vision\10.0.1\jars\classes.jar"
+        jar="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-vision\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="ba6aa5e69ef31dee57208125323cee958fc67565">
-        <dex dex="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-vision-10.0.1_ced08b9d78517133074ce3f525a8bdfaeffeab22\classes.dex" />
+        <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-vision-10.0.1_60665eb0446d978bfdffb1da9eeb478309c8ea49\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-places\10.0.1\jars\classes.jar"
+        jar="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-places\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="f3e51e9c5233b8897f61e08a6a27bc36283c2724">
-        <dex dex="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-places-10.0.1_e9f9ad9fc5985add0a42f1f76ab25ab71ee506b3\classes.dex" />
+        <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-places-10.0.1_a55c55f7881e2cdfce8b7870f3a9e091efa8e219\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.2.1\jars\classes.jar"
+        jar="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.2.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="d5c731fc64c03dfe04d51134955b483551c35849">
-        <dex dex="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-24.2.1_1bf8ace70c8be6acb990bdae2580ffdd5b7e1016\classes.dex" />
+        <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-24.2.1_273c41f1b6a64993373d086cd97d6fa51e62209a\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-panorama\10.0.1\jars\classes.jar"
+        jar="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-panorama\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="92c871a22463a247e8a77a9f3fd231c278788c4a">
-        <dex dex="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-panorama-10.0.1_6af213713c1cd70bd2bdfc37ded4ee3c79be14eb\classes.dex" />
+        <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-panorama-10.0.1_3d06eb0232c92c5b75de951d48f15a89bce2c4db\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\classes.jar"
+        jar="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
-        <dex dex="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-24.2.1_53b689b243078421ade00a08b2d24e10d6ea73ad\classes.dex" />
+        <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-24.2.1_15ed5c5a1c818434ef9e6527ec6810154a0cf781\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-awareness\10.0.1\jars\classes.jar"
+        jar="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-awareness\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="4385ccc0a88b33d182a836eadb47be55c8eb1107">
-        <dex dex="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-awareness-10.0.1_6a81e0cd8120e3e9e5ce6958e2be1c6248b7fe0c\classes.dex" />
+        <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-awareness-10.0.1_f8a2201f31a27236bcea34c1d4f9d229a01942fc\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-safetynet\10.0.1\jars\classes.jar"
+        jar="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-safetynet\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="f6cf557be4dbd0282ea2388633e5378634423226">
-        <dex dex="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-safetynet-10.0.1_be66e2fcb8882baf0c20f1e0caf6459dc451d13e\classes.dex" />
+        <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-safetynet-10.0.1_e07b6e82b6e45cb62d38975c5b12bd9ba519d3fa\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics-impl\10.0.1\jars\classes.jar"
+        jar="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics-impl\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="e871881b36b32e6bfd271a830c6eeb54ff0fc185">
-        <dex dex="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-analytics-impl-10.0.1_b378019062795bff2191b8546de6da9507985925\classes.dex" />
+        <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-analytics-impl-10.0.1_b8189b18531ab97c1427b6d07362e27b966d9565\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\10.0.1\jars\classes.jar"
+        jar="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="756f6297eef79784f5e356dcd4f39865028b2bd0">
-        <dex dex="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-basement-10.0.1_223e1fd86cb9f1067d7177d650e36a38a6e694b9\classes.dex" />
+        <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-basement-10.0.1_4037e8dabe7fc3ecc305866e05bed23d5cf6659a\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\10.0.1\jars\classes.jar"
+        jar="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="8308ed003522a2ee8958311afcc4cfd0470377cd">
-        <dex dex="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-gcm-10.0.1_fcde142caba07cbb2a8f28bf17c42f3a4219d8f7\classes.dex" />
+        <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-gcm-10.0.1_8e395c3e9b79acb49275bdd30c872b59e0b95f1d\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\exploded-aar\com.google.firebase\firebase-messaging\10.0.1\jars\classes.jar"
+        jar="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\exploded-aar\com.google.firebase\firebase-messaging\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="4b17463c814bdc562fb0392fa3494063623a0904">
-        <dex dex="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-messaging-10.0.1_cc9ea200761dad21c6f861f59b2e92e56fedabac\classes.dex" />
+        <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-messaging-10.0.1_f5d5a64828f754a343f08a33c805a552cf9a9e5a\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database\10.0.1\jars\classes.jar"
+        jar="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="8f128aeeb7e31271b28a7adb9dac1f3a6ed9f5e7">
-        <dex dex="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-10.0.1_0d9732c9e614100d53f802a49d706cbe8cc8f62e\classes.dex" />
+        <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-10.0.1_6b28f35a4cd890fd4327d3ea6971afa82bbc4244\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\10.0.1\jars\classes.jar"
+        jar="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="6addaba208e21c6da776d0ca75b6b23a6ccd5499">
-        <dex dex="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tasks-10.0.1_df2c88181e2c4294ebfe7c639b9c230227bb6153\classes.dex" />
+        <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tasks-10.0.1_7100d357cf2dfd40520c6eddffabcda09137b3bb\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-iid\10.0.1\jars\classes.jar"
+        jar="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-iid\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="6bb5d347ebc0c6ef3c83a905222a688da5d2f7b4">
-        <dex dex="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-iid-10.0.1_f1f4955745cbf350bf5476d2fec5fa5ada49dad8\classes.dex" />
+        <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-iid-10.0.1_4b5dac4040747b8cb25f95d864241a7cf34ae9a8\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\classes.jar"
+        jar="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
-        <dex dex="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-24.2.1_ce9a98caa6c9de96679c22f69572622a225e0eb7\classes.dex" />
+        <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-24.2.1_57c4ff6748013ba636fce5e2c391b6a9cbbfa34c\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jar="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\libs\internal_impl-24.2.1.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
-        <dex dex="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_c4647aea22b7591a382dbe0f88dac18f5534e18b\classes.dex" />
+        <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_f6e3386a222a13d163accf94eec18be054997043\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\24.0.0\jars\libs\internal_impl-24.0.0.jar"
+        jar="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\24.0.0\jars\libs\internal_impl-24.0.0.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="b6763651ec29b4c95e7bbe63fc393ffcc8c4c2c5">
-        <dex dex="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.0.0_0725a85427a86e1a5a7c5d77ee41ebac7f0cc882\classes.dex" />
+        <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.0.0_01678443b41b958dfdb0c7a06813eb11d8cf3c05\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-nearby\10.0.1\jars\classes.jar"
+        jar="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-nearby\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="c6e1f361e9d61aece9dac39b77fcc98a337a144d">
-        <dex dex="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-nearby-10.0.1_f46a9370aa58d347e1951f622c1e84fd6161aeeb\classes.dex" />
+        <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-nearby-10.0.1_9ff848e5c47e7d6b49e19476d9fca2f1081d5c01\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\exploded-aar\com.google.firebase\firebase-storage-common\10.0.1\jars\classes.jar"
+        jar="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\exploded-aar\com.google.firebase\firebase-storage-common\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="09cf6aa1390f95157e8295d02be7868f568825fc">
-        <dex dex="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-storage-common-10.0.1_7fd08afd5e5d2d02fc7ca9ed3c9e6ff73a8ba28e\classes.dex" />
+        <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-storage-common-10.0.1_245d6db9e9950472e1606c27fb30ec0fe6e30ea0\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database-connection\10.0.1\jars\classes.jar"
+        jar="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database-connection\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="8010ae6ed32828a145b25ec97bc07b7a83c6318f">
-        <dex dex="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-connection-10.0.1_e525ad12ac1171b081a262e2ba1c99c2e35062b5\classes.dex" />
+        <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-connection-10.0.1_005d90745c334a627255ddd80cba3cda90adf865\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-plus\10.0.1\jars\classes.jar"
+        jar="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-plus\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="c14f0c89f28cf782e42581ab0aba5f63af39b3d2">
-        <dex dex="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-plus-10.0.1_30a36535a59cc01e3c6b47d772f2a0c5e4b4df23\classes.dex" />
+        <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-plus-10.0.1_992224a0f77162c01caf8f46b6b1898b2b0df706\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appinvite\10.0.1\jars\classes.jar"
+        jar="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appinvite\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="39907d5c8f5902fffef30160ca7447c93b82405c">
-        <dex dex="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-appinvite-10.0.1_83893e5a9b817c17b61ab94841106d42edf49711\classes.dex" />
+        <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-appinvite-10.0.1_b54bcdd765d5ecfe9fece1ac7aba55f64c8b0c58\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\exploded-aar\com.android.support\palette-v7\24.0.0\jars\classes.jar"
+        jar="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\exploded-aar\com.android.support\palette-v7\24.0.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="734e80dffea7bd76c18ae256822a124c30d85850">
-        <dex dex="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-palette-v7-24.0.0_1ea8540efeed5fa218d22d5e909879949ec3a7df\classes.dex" />
+        <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-palette-v7-24.0.0_ba2c1c7e8ccc108619fd02bf1c95f8c312e8d6d2\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tagmanager-api\10.0.1\jars\classes.jar"
+        jar="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tagmanager-api\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="b1df8fa3d372a27e4e969ce00b00689ee1eed031">
-        <dex dex="C:\Users\Derian\Documents\Android\Bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tagmanager-api-10.0.1_78e400383fc5fa3796628cd12d69d16601031694\classes.dex" />
+        <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tagmanager-api-10.0.1_8dbd4ea0cdb14c4efebe16945d10bd9b026d9dcd\classes.dex" />
     </item>
 
 </items>

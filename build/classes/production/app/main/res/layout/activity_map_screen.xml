@@ -1,0 +1,65 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <!--<fragment
+        android:id="@+id/infoWindowMap"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:name="com.appolica.interactiveinfowindow.fragment.MapInfoWindowFragment"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" /> -->
+
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.stuff.bizzy.MapScreen"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:text="Display Buildings"
+            android:layout_marginTop="10dp"
+            android:onClick="toggleBuildingBorders" />
+    </fragment>
+
+    <RelativeLayout
+        android:id="@+id/joinPanel"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignBottom="@+id/map"
+        android:background="#CC808080"
+        android:visibility="visible">
+
+
+        <Button
+            android:text="Join this group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/joinGroup"
+            android:layout_centerInParent="true"
+            android:textSize="18sp"
+            android:onClick="onJoinGroupClick" />
+
+        <Button
+            android:text="Create Group at Current Location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/createGroup"
+            android:layout_centerInParent="true"
+            android:textSize="14sp" />
+
+    </RelativeLayout>
+
+</RelativeLayout>
+
