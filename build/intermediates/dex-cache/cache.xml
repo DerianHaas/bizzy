@@ -124,7 +124,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
-        sha1="a085091f761c78856e9d04324ed0df4ce76377bf">
+        sha1="655eeec8a6f0639212c3c04debce05d14965cdde">
         <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_2671fcd36a92deba13ee27fb40c12e3768c4044e\classes.dex" />
     </item>
     <item
@@ -151,7 +151,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
-        sha1="10a4d55f5521240df93c16d0d4c7e6904450c6a2">
+        sha1="b36d40e401a8cf326f79bc4bbc06699e1b52cfa1">
         <dex dex="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_5d4e50efbbbe0f7195bd222c7a0667783e63bc84\classes.dex" />
     </item>
     <item

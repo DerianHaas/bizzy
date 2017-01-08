@@ -5,33 +5,54 @@
     density="xxhdpi"
     format="8"
     plugin-version="2.2.2"
-    timestamp="348592289930345"
+    timestamp="622650100631413"
     token="4625378683702770117"
-    verifier="FULL_BUILD_REQUESTED" >
+    verifier="COMPATIBLE" >
 
     <task
         name="javac"
-        duration="1707" />
+        duration="309" />
     <task
         name="instant-run-dex"
-        duration="0" />
+        duration="26" />
     <task
         name="instant-run-transform"
-        duration="1076" />
+        duration="66" />
     <task
         name="verifier"
-        duration="242" />
+        duration="6" />
 
     <artifact
-        location="C:\Users\Derian\Documents\Android\bizzy\app\build\outputs\apk\app-debug.apk"
-        type="MAIN" />
+        location="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\reload-dex\debug\classes.dex"
+        type="RELOAD_DEX" />
 
     <build
-        timestamp="348592289930345"
+        timestamp="622142510305324"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="C:\Users\Derian\Documents\Android\bizzy\app\build\outputs\apk\app-debug.apk"
             type="MAIN" />
+    </build>
+    <build
+        timestamp="622385448725231"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\instant-run-resources\resources-debug.ir.ap_"
+            type="RESOURCES" />
+    </build>
+    <build
+        timestamp="622549504131327"
+        verifier="CLASS_ADDED" >
+        <artifact
+            location="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_7\classes.dex"
+            type="DEX" />
+    </build>
+    <build
+        timestamp="622650100631413"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\reload-dex\debug\classes.dex"
+            type="RELOAD_DEX" />
     </build>
 
 </instant-run>

@@ -1,18 +1,8 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:map="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-
-    <!--<fragment
-        android:id="@+id/infoWindowMap"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:name="com.appolica.interactiveinfowindow.fragment.MapInfoWindowFragment"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" /> -->
 
     <fragment
         android:id="@+id/map"
@@ -28,10 +18,25 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="top"
+            android:layout_marginTop="10dp"
+            android:id="@+id/listToggle"
+            android:background="@android:drawable/ic_menu_sort_by_size"
+            android:onClick="switchToListView" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
             android:text="Display Buildings"
             android:layout_marginTop="10dp"
-            android:onClick="toggleBuildingBorders" />
+            android:onClick="toggleBuildingBorders"
+            android:id="@+id/buildingToggle" />
+
+
+
     </fragment>
+
+
 
     <RelativeLayout
         android:id="@+id/joinPanel"
@@ -58,6 +63,67 @@
             android:id="@+id/createGroup"
             android:layout_centerInParent="true"
             android:textSize="14sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/listPanel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:id="@+id/listToolbar"
+            android:orientation="vertical">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="10dp"
+                android:id="@+id/mapToggle"
+                android:background="@android:drawable/ic_menu_mapmode"
+                android:onClick="switchToMapButton" />
+
+           <SearchView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/searchBar" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/sortPanel"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_alignParentBottom="true">
+
+            <TextView
+                android:text="Sort groups by:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingLeft="10dp"/>
+
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/sortingSpinner"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/list"
+            android:layout_below="@+id/listToolbar"
+            android:layout_above="@+id/sortPanel">
+        </ListView>
+
+
 
     </RelativeLayout>
 

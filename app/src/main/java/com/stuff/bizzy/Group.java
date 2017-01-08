@@ -17,20 +17,23 @@ import static android.R.attr.shape;
 public class Group {
 
     private Set<String> people; //Will contain users in study group
+    private String name;
     private LatLng location;
     private Building building;
 
     /**
      * Creates an empty (one example person) group at a specified location.
      * @param location the location of the group
+     * @param name the name of this group
      * @throws IllegalArgumentException If the location is not on GT campus
      */
 
-    public Group(LatLng location) {
+    public Group(LatLng location, String name) {
         if (!MapScreen.boundaries.contains(location)) {
             throw new IllegalArgumentException("Location must be on GT campus!");
         }
         this.location = location;
+        this.name = name;
         people = new HashSet<>();
         people.add("Someone"); //Example person
     }
@@ -38,14 +41,16 @@ public class Group {
     /**
      * Creates an empty (one example person) group at a specified location.
      * @param location the location of the group
+     * @param name the name of this group
      * @param people the users currently in the group
      * @throws IllegalArgumentException If the location is not on GT campus
      */
-    public Group(LatLng location, Set<String> people) {
+    public Group(LatLng location, String name, Set<String> people) {
         if (!MapScreen.boundaries.contains(location)) {
             throw new IllegalArgumentException("Location must be on GT campus!");
         }
         this.location = location;
+        this.name = name;
         this.people = people;
     }
 
@@ -79,6 +84,27 @@ public class Group {
      */
     public void setBuilding(Building b){
         building = b;
+    }
+
+    /**
+     * @return the name of this group
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * @return the name of the building this group resides in
+     */
+    public String getBuildingName() {
+        return building == null ? "" : building.getName();
+    }
+
+    /**
+     * @return the number of people in this group
+     */
+    public int getNumPeople() {
+        return people.size();
     }
 
     @Override

@@ -9,6 +9,11 @@
 <item>@id/cast_button_type_empty</item>
 <item>@id/cast_button_type_play_pause_toggle</item>
 </array>
+    <string-array name="group_sort_option">
+        <item>Group Size</item>
+        <item>Group Name</item>
+        <item>Building Name</item>
+    </string-array>
     <attr format="reference" name="MediaRouteControllerWindowBackground"/>
     <attr format="reference" name="castExpandedControllerToolbarStyle"/>
     <attr format="reference" name="drawerArrowStyle"/>
@@ -529,6 +534,8 @@
     <dimen name="abc_text_size_subtitle_material_toolbar">16dp</dimen>
     <dimen name="abc_text_size_title_material">20sp</dimen>
     <dimen name="abc_text_size_title_material_toolbar">20dp</dimen>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="cast_expanded_controller_ad_background_layout_height">350dp</dimen>
     <dimen name="cast_expanded_controller_ad_background_layout_width">-1px</dimen>
     <dimen name="cast_expanded_controller_ad_layout_height">350dp</dimen>
@@ -733,6 +740,7 @@
     <string name="mr_user_route_category_name">Devices</string>
     <string name="place_autocomplete_clear_button">Clear search</string>
     <string name="place_autocomplete_search_hint">Search</string>
+    <string name="search_hint">Search for group</string>
     <string name="search_menu_title">Search</string>
     <string name="status_bar_notification_info_overflow">999+</string>
     <string name="store_picture_message">"Allow Ad to store image in Picture gallery?"</string>
@@ -746,7 +754,7 @@
     <style name="AlertDialog.AppCompat.Light" parent="Base.AlertDialog.AppCompat.Light"/>
     <style name="Animation.AppCompat.Dialog" parent="Base.Animation.AppCompat.Dialog"/>
     <style name="Animation.AppCompat.DropDownUp" parent="Base.Animation.AppCompat.DropDownUp"/>
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Base.Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>

@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">Bizzy</string>
     <string name="title_activity_map_screen">Map</string>
+    <string name="search_hint">Search for group</string>
+    <string-array name="group_sort_option">
+        <item>Group Size</item>
+        <item>Group Name</item>
+        <item>Building Name</item>
+    </string-array>
 </resources>

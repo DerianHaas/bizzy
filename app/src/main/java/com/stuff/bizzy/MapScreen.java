@@ -2,17 +2,29 @@ package com.stuff.bizzy;
 
 import android.Manifest;
 import android.app.AlertDialog;
+import android.app.SearchManager;
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.SearchView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -25,12 +37,14 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.Polygon;
 import com.google.maps.android.PolyUtil;
 
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import static com.stuff.bizzy.BuildingList.buildings;
+import static com.stuff.bizzy.R.id.joinGroup;
+import static com.stuff.bizzy.R.id.joinPanel;
 
 public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
 
@@ -39,9 +53,12 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
 
     private HashMap<Building, Polygon> polygonMap;
     public static LatLngBounds boundaries = new LatLngBounds(new LatLng(33.770486, -84.407322), new LatLng(33.781467, -84.387799));
-    private Set<Group> groups;
+    private List<Group> groups;
     private Map<Marker, Group> groupMarkers;
     private Marker currentMarker;
+    private ListView groupList;
+    public static ArrayAdapter<Group> adapter;
+    private SearchView searchBar;
 
     private final int MY_PERMISSIONS_REQUEST_LOCATION = 12;
     private boolean isLocationEnabled;
@@ -55,10 +72,41 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-        groups = new HashSet<>(); //TODO Get from server
-        groups.add(new Group(new LatLng(33.774496, -84.396266)));//example group
-        groups.add(new Group(new LatLng(33.774651, -84.397263)));//example group
+        GroupList.refreshGroupList();
+        groups = GroupList.sortGroups(GroupComparator.Method.GROUP_SIZE);
+
+
+        groupList = (ListView) findViewById(R.id.list);
+        adapter = new GroupListAdapter(this, groups);
+        groupList.setAdapter(adapter);
+
+        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        searchBar = (SearchView) findViewById(R.id.searchBar);
+        searchBar.setSearchableInfo(searchManager.getSearchableInfo(new ComponentName(this, SearchActivity.class)));
+        searchBar.setSubmitButtonEnabled(true);
+
+        Spinner spinner = (Spinner) findViewById(R.id.sortingSpinner);
+        ArrayAdapter<CharSequence> spinadapter = ArrayAdapter.createFromResource(this, R.array.group_sort_option,
+                android.R.layout.simple_spinner_item);
+        spinadapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(spinadapter);
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                List<Group> sorted = GroupList.sortGroups(GroupComparator.Method.values()[position]);
+                adapter = new GroupListAdapter(getApplicationContext(), sorted);
+                groupList.setAdapter(adapter);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
     }
+
+
 
 
     /**
@@ -116,9 +164,9 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
                 currentMarker = marker;
                 if (isLocationEnabled) {
                     findViewById(R.id.createGroup).setVisibility(View.INVISIBLE);
-                    findViewById(R.id.joinGroup).setVisibility(View.VISIBLE);
-                    findViewById(R.id.joinPanel).setVisibility(View.INVISIBLE);
-                    findViewById(R.id.joinPanel).setVisibility(View.VISIBLE);
+                    findViewById(joinGroup).setVisibility(View.VISIBLE);
+                    findViewById(joinPanel).setVisibility(View.INVISIBLE);
+                    findViewById(joinPanel).setVisibility(View.VISIBLE);
                 }
                 return false;
             }
@@ -130,10 +178,10 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
             @Override
             public void onMapClick(LatLng latLng) {
                 currentMarker = null;
-                findViewById(R.id.joinGroup).setVisibility(View.INVISIBLE);
+                findViewById(joinGroup).setVisibility(View.INVISIBLE);
                 findViewById(R.id.createGroup).setVisibility(View.VISIBLE);
-                findViewById(R.id.joinPanel).setVisibility(View.INVISIBLE);
-                findViewById(R.id.joinPanel).setVisibility(View.VISIBLE);
+                findViewById(joinPanel).setVisibility(View.INVISIBLE);
+                findViewById(joinPanel).setVisibility(View.VISIBLE);
             }
         });
 
@@ -162,8 +210,6 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
 
                 return info;
             }
-
-
         });
 
     }
@@ -179,7 +225,7 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
                     && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 // permission was granted
                 isLocationEnabled = true;
-                findViewById(R.id.joinPanel).setVisibility(View.VISIBLE);
+                findViewById(joinPanel).setVisibility(View.VISIBLE);
             } else {
                 // permission denied. Disable the functionality that depends on this permission.
                 new AlertDialog.Builder(this).
@@ -191,17 +237,27 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
                     }
                 }).show();
                 isLocationEnabled = false;
-                findViewById(R.id.joinPanel).setVisibility(View.INVISIBLE);
+                findViewById(joinPanel).setVisibility(View.INVISIBLE);
             }
         }
     }
+
 
     /**
      * Called when the "Join this Group" button is clicked
      * @param v the current view
      */
     public void onJoinGroupClick(View v) {
-        boolean b = groupMarkers.get(currentMarker).addToGroup(user);
+        joinGroup(groupMarkers.get(currentMarker));
+
+    }
+
+    /**
+     * Joins the specified group if able
+     * @param g the group to join
+     */
+    private void joinGroup(Group g) {
+        boolean b = g.addToGroup(user);
         if (b) {
             new AlertDialog.Builder(this).setTitle("Success").
                     setMessage("You successfully joined this study group!").setNeutralButton("Continue", new DialogInterface.OnClickListener() {
@@ -246,6 +302,44 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
         }
     }
 
+    /**
+     * Called when the ListToggle button is clicked
+     * @param v the current view
+     */
+    public void switchToListView(View v) {
+        getSupportFragmentManager().findFragmentById(R.id.map).getView().setVisibility(View.INVISIBLE);
+        findViewById(R.id.joinPanel).setVisibility(View.INVISIBLE);
+        findViewById(R.id.listPanel).setVisibility(View.VISIBLE);
+
+    }
+
+    /**
+     * Called when the MapToggle button is clicked
+     * @param v the current view
+     */
+    public void switchToMapButton(View v) {
+        switchToMapView(null);
+    }
+
+    /**
+     * Switches to the map view, then centers it on the specified group
+     * @param g the group to focus on
+     */
+    private void switchToMapView(Group g) {
+        findViewById(R.id.listPanel).setVisibility(View.INVISIBLE);
+        getSupportFragmentManager().findFragmentById(R.id.map).getView().setVisibility(View.VISIBLE);
+        findViewById(R.id.joinPanel).setVisibility(View.VISIBLE);
+        if (g != null) {
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(g.getLocation(), 17));
+            for (Marker m : groupMarkers.keySet()) {
+                if (m.getPosition().equals(g.getLocation())) {
+                    m.showInfoWindow();
+                    break;
+                }
+            }
+        }
+    }
+
     private void placeGroupMarkers() {
         groupMarkers = new HashMap<>();
         for (Group g : groups) {
@@ -259,4 +353,71 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
             polygonMap.put(b, b.createBuilding(mMap, Color.BLACK));
         }
     }
+
+
+
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        int[] indices = data.getIntArrayExtra("Results");
+//        Group[] filtered = new Group[indices.length];
+//        Toast.makeText(this, indices.toString(), Toast.LENGTH_SHORT);
+//        for (int i = 0; i < indices.length; i++){
+//            filtered[i] = groups[indices[i]];
+//        }
+//        groupList.setAdapter(new GroupListAdapter(this, filtered));
+//        groupList.invalidateViews();
+//    }
+
+    /**
+     * An adapter that displays group information in a ListView
+     */
+    private class GroupListAdapter extends ArrayAdapter<Group> {
+        private final Context context;
+        private final List<Group> groups;
+
+        /**
+         * Creates an adapter with the specified list of groups
+         * @param c the context
+         * @param g the list of groups to display
+         */
+        public GroupListAdapter(Context c, List<Group> g) {
+            super(c, -1, g);
+            context = c;
+            groups = g;
+        }
+
+        @NonNull
+        @Override
+        public View getView(final int position, View convertView, ViewGroup parent) {
+            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            View v = inflater.inflate(R.layout.group_list_item_layout, parent, false);
+            TextView firstLine = (TextView) v.findViewById(R.id.firstLine);
+            TextView secondLine = (TextView) v.findViewById(R.id.secondLine);
+            Button joinButton = (Button) v.findViewById(R.id.joinGroup);
+            Button mapButton = (Button) v.findViewById(R.id.icon);
+            String numText = groups.get(position).getNumPeople() + (groups.get(position).getNumPeople() > 1 ? " people" : " person");
+            firstLine.setText(groups.get(position).getName() + " - " + numText);
+            String buildingName = groups.get(position).getBuildingName();
+            if (!buildingName.isEmpty()) {
+                secondLine.setText("Location: " + buildingName);
+            } else {
+                secondLine.setText("Location: Not in a Building");
+            }
+            joinButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    joinGroup(groups.get(position));
+                }
+            });
+            mapButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    switchToMapView(groups.get(position));
+                }
+            });
+            return v;
+        }
+    }
 }
+

@@ -44,10 +44,6 @@
         "source": "C:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\notification_template_media.xml"
     },
     {
-        "merged": "C:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_maps.xml",
-        "source": "C:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\src\\main\\res\\layout\\activity_maps.xml"
-    },
-    {
         "merged": "C:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_bar.xml",
         "source": "C:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\abc_action_mode_bar.xml"
     },
@@ -62,6 +58,10 @@
     {
         "merged": "C:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\build\\intermediates\\res\\merged\\debug\\layout\\cast_tracks_chooser_dialog_row_layout.xml",
         "source": "C:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\10.0.1\\res\\layout\\cast_tracks_chooser_dialog_row_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\build\\intermediates\\res\\merged\\debug\\layout\\group_list_item_layout.xml",
+        "source": "C:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\src\\main\\res\\layout\\group_list_item_layout.xml"
     },
     {
         "merged": "C:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\build\\intermediates\\res\\merged\\debug\\layout\\amu_text_bubble.xml",
@@ -102,6 +102,10 @@
     {
         "merged": "C:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\build\\intermediates\\res\\merged\\debug\\layout\\amu_webview.xml",
         "source": "C:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\build\\intermediates\\exploded-aar\\com.google.maps.android\\android-maps-utils\\0.4.4\\res\\layout\\amu_webview.xml"
+    },
+    {
+        "merged": "C:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_search.xml",
+        "source": "C:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\src\\main\\res\\layout\\activity_search.xml"
     },
     {
         "merged": "C:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_layout.xml",
