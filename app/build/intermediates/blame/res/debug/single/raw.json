@@ -12,12 +12,12 @@
         "source": "C:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\build\\intermediates\\exploded-aar\\com.google.maps.android\\android-maps-utils\\0.4.4\\res\\raw\\amu_nested_folders.kml"
     },
     {
-        "merged": "C:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\build\\intermediates\\res\\merged\\debug\\raw\\amu_inline_style.kml",
-        "source": "C:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\build\\intermediates\\exploded-aar\\com.google.maps.android\\android-maps-utils\\0.4.4\\res\\raw\\amu_inline_style.kml"
-    },
-    {
         "merged": "C:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\build\\intermediates\\res\\merged\\debug\\raw\\gtm_analytics",
         "source": "C:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-tagmanager-v4-impl\\10.0.1\\res\\raw\\gtm_analytics"
+    },
+    {
+        "merged": "C:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\build\\intermediates\\res\\merged\\debug\\raw\\amu_inline_style.kml",
+        "source": "C:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\build\\intermediates\\exploded-aar\\com.google.maps.android\\android-maps-utils\\0.4.4\\res\\raw\\amu_inline_style.kml"
     },
     {
         "merged": "C:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\build\\intermediates\\res\\merged\\debug\\raw\\amu_basic_folder.kml",

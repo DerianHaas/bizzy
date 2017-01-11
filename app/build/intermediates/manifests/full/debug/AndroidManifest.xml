@@ -63,7 +63,9 @@
                 android:name="android.app.default_searchable"
                 android:value=".SearchableActivity" />
         </activity>
-        <activity android:name="com.stuff.bizzy.SearchActivity" >
+        <activity
+            android:name="com.stuff.bizzy.SearchActivity"
+            android:launchMode="singleTop" >
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />
             </intent-filter>
