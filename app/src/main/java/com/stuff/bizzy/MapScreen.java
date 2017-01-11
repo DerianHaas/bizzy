@@ -1,29 +1,31 @@
 package com.stuff.bizzy;
 
 import android.Manifest;
+import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.SearchManager;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.SearchView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -56,10 +58,8 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
     private List<Group> groups;
     private Map<Marker, Group> groupMarkers;
     private Marker currentMarker;
-    private ListView groupList;
-    public static ArrayAdapter<Group> adapter;
-    private SearchView searchBar;
-
+    private RecyclerView groupList;
+    public static GroupListAdapter adapter;
     private final int MY_PERMISSIONS_REQUEST_LOCATION = 12;
     private boolean isLocationEnabled;
 
@@ -76,14 +76,49 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
         groups = GroupList.sortGroups(GroupComparator.Method.GROUP_SIZE);
 
 
-        groupList = (ListView) findViewById(R.id.list);
+        groupList = (RecyclerView) findViewById(R.id.list);
+        groupList.setHasFixedSize(true);
         adapter = new GroupListAdapter(this, groups);
         groupList.setAdapter(adapter);
+        LinearLayoutManager llm = new LinearLayoutManager(this);
+        llm.setOrientation(LinearLayoutManager.VERTICAL);
+        groupList.setLayoutManager(llm);
 
-        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-        searchBar = (SearchView) findViewById(R.id.searchBar);
-        searchBar.setSearchableInfo(searchManager.getSearchableInfo(new ComponentName(this, SearchActivity.class)));
-        searchBar.setSubmitButtonEnabled(true);
+        EditText filter = (EditText) findViewById(R.id.searchBar);
+        filter.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                ArrayList<Group> filtered = new ArrayList<Group>();
+                for (Group g : groups) {
+                    if (g.getName().contains(s)) {
+                        filtered.add(g);
+                    }
+                }
+                adapter = new GroupListAdapter(getApplicationContext(), filtered);
+                groupList.setAdapter(adapter);
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+        filter.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    hideKeyboardFrom(getApplicationContext(), v);
+                }
+            }
+        });
+
 
         Spinner spinner = (Spinner) findViewById(R.id.sortingSpinner);
         ArrayAdapter<CharSequence> spinadapter = ArrayAdapter.createFromResource(this, R.array.group_sort_option,
@@ -94,8 +129,8 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                List<Group> sorted = GroupList.sortGroups(GroupComparator.Method.values()[position]);
-                adapter = new GroupListAdapter(getApplicationContext(), sorted);
+                groups = GroupList.sortGroups(GroupComparator.Method.values()[position]);
+                adapter = new GroupListAdapter(getApplicationContext(), groups);
                 groupList.setAdapter(adapter);
             }
 
@@ -242,6 +277,30 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
         }
     }
 
+    /**
+     * Hides keyboard from activity
+     * @param activity the activity called from
+     */
+    public static void hideKeyboard(Activity activity) {
+        InputMethodManager imm = (InputMethodManager) activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
+        //Find the currently focused view, so we can grab the correct window token from it.
+        View view = activity.getCurrentFocus();
+        //If no view currently has focus, create a new one, just so we can grab a window token from it
+        if (view == null) {
+            view = new View(activity);
+        }
+        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+    }
+
+    /**
+     * Hides the keyboard from the current view
+     * @param context the current context
+     * @param view the current view
+     */
+    public static void hideKeyboardFrom(Context context, View view) {
+        InputMethodManager imm = (InputMethodManager) context.getSystemService(Activity.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+    }
 
     /**
      * Called when the "Join this Group" button is clicked
@@ -269,6 +328,7 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
             mMap.clear();
             placeGroupMarkers();
             placeBuildings();
+            adapter.notifyDataSetChanged();
             //TODO Send user to study group chat/page
             //TODO Send info to server
         } else {
@@ -356,23 +416,29 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
 
 
 
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        int[] indices = data.getIntArrayExtra("Results");
-//        Group[] filtered = new Group[indices.length];
-//        Toast.makeText(this, indices.toString(), Toast.LENGTH_SHORT);
-//        for (int i = 0; i < indices.length; i++){
-//            filtered[i] = groups[indices[i]];
-//        }
-//        groupList.setAdapter(new GroupListAdapter(this, filtered));
-//        groupList.invalidateViews();
-//    }
 
     /**
      * An adapter that displays group information in a ListView
      */
-    private class GroupListAdapter extends ArrayAdapter<Group> {
+    private class GroupListAdapter extends RecyclerView.Adapter<GroupListAdapter.ViewHolder> {
+        /**
+         * Describes how a member of the RecyclerView will be laid out
+         */
+        public class ViewHolder extends RecyclerView.ViewHolder {
+            public TextView firstLine;
+            public TextView secondLine;
+            public Button joinGroup;
+            public Button icon;
+
+            public ViewHolder(View itemView) {
+                super(itemView);
+                firstLine = (TextView) itemView.findViewById(R.id.firstLine);
+                secondLine = (TextView) itemView.findViewById(R.id.secondLine);
+                joinGroup = (Button) itemView.findViewById(R.id.joinGroup);
+                icon = (Button) itemView.findViewById(R.id.icon);
+            }
+        }
+
         private final Context context;
         private final List<Group> groups;
 
@@ -382,41 +448,59 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
          * @param g the list of groups to display
          */
         public GroupListAdapter(Context c, List<Group> g) {
-            super(c, -1, g);
             context = c;
             groups = g;
         }
 
-        @NonNull
+        /**
+         * @return the context of this adapter
+         */
+        public Context getContext() {
+            return context;
+        }
+
         @Override
-        public View getView(final int position, View convertView, ViewGroup parent) {
-            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            View v = inflater.inflate(R.layout.group_list_item_layout, parent, false);
-            TextView firstLine = (TextView) v.findViewById(R.id.firstLine);
-            TextView secondLine = (TextView) v.findViewById(R.id.secondLine);
-            Button joinButton = (Button) v.findViewById(R.id.joinGroup);
-            Button mapButton = (Button) v.findViewById(R.id.icon);
-            String numText = groups.get(position).getNumPeople() + (groups.get(position).getNumPeople() > 1 ? " people" : " person");
-            firstLine.setText(groups.get(position).getName() + " - " + numText);
-            String buildingName = groups.get(position).getBuildingName();
+        public GroupListAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            Context context = parent.getContext();
+            LayoutInflater inflater = LayoutInflater.from(context);
+            View contactView = inflater.inflate(R.layout.group_list_item_layout, parent, false);
+            ViewHolder viewHolder = new ViewHolder(contactView);
+            return viewHolder;
+        }
+
+        @Override
+        public void onBindViewHolder(ViewHolder holder, int position) {
+            Group group = groups.get(position);
+            TextView firstLine = holder.firstLine;
+            TextView secondLine = holder.secondLine;
+            Button joinButton = holder.joinGroup;
+            Button mapButton = holder.icon;
+            String numText = group.getNumPeople() + (group.getNumPeople() > 1 ? " people" : " person");
+            firstLine.setText(group.getName() + " - " + numText);
+            String buildingName = group.getBuildingName();
             if (!buildingName.isEmpty()) {
                 secondLine.setText("Location: " + buildingName);
             } else {
                 secondLine.setText("Location: Not in a Building");
             }
+            final int p = holder.getAdapterPosition();
             joinButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    joinGroup(groups.get(position));
+                    joinGroup(groups.get(p));
                 }
             });
             mapButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    switchToMapView(groups.get(position));
+                    switchToMapView(groups.get(p));
                 }
             });
-            return v;
+        }
+
+        @Override
+        public int getItemCount() {
+            return groups.size();
         }
     }
 }
