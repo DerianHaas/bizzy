@@ -16,7 +16,7 @@ import static android.R.attr.shape;
 
 public class Group {
 
-    private Set<String> people; //Will contain users in study group
+    private Set<User> people;
     private String name;
     private LatLng location;
     private Building building;
@@ -35,7 +35,7 @@ public class Group {
         this.location = location;
         this.name = name;
         people = new HashSet<>();
-        people.add("Someone"); //Example person
+        people.add(new User("Someone", "...")); //Example person
     }
 
     /**
@@ -45,7 +45,7 @@ public class Group {
      * @param people the users currently in the group
      * @throws IllegalArgumentException If the location is not on GT campus
      */
-    public Group(LatLng location, String name, Set<String> people) {
+    public Group(LatLng location, String name, Set<User> people) {
         if (!MapScreen.boundaries.contains(location)) {
             throw new IllegalArgumentException("Location must be on GT campus!");
         }
@@ -68,7 +68,7 @@ public class Group {
      * @param user the user to add to the group
      * @return whether the user was added successfully
      */
-    public boolean addToGroup(String user) {
+    public boolean addToGroup(User user) {
         return people.add(user);
     }
 

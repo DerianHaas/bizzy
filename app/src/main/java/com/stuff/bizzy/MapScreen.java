@@ -51,7 +51,7 @@ import static com.stuff.bizzy.R.id.joinPanel;
 public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
-    private String user = "Me"; //TODO Get current user from login/profile
+    private User user = new User("Me", "..."); //TODO Get current user from login/profile
 
     private HashMap<Building, Polygon> polygonMap;
     public static LatLngBounds boundaries = new LatLngBounds(new LatLng(33.770486, -84.407322), new LatLng(33.781467, -84.387799));
@@ -141,18 +141,6 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
         });
     }
 
-
-
-
-    /**
-     * Manipulates the map once available.
-     * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
-     * If Google Play services is not installed on the device, the user will be prompted to install
-     * it inside the SupportMapFragment. This method will only be triggered once the user has
-     * installed Google Play services and returned to the app.
-     */
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
@@ -249,7 +237,6 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
 
     }
 
-
     @Override
     public void onRequestPermissionsResult(int requestCode,
                                            String permissions[], int[] grantResults) {
@@ -277,6 +264,7 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
         }
     }
 
+    //region keyboard hiding methods
     /**
      * Hides keyboard from activity
      * @param activity the activity called from
@@ -301,7 +289,9 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
         InputMethodManager imm = (InputMethodManager) context.getSystemService(Activity.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
+    //endregion
 
+    //region Button click methods
     /**
      * Called when the "Join this Group" button is clicked
      * @param v the current view
@@ -413,9 +403,7 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
             polygonMap.put(b, b.createBuilding(mMap, Color.BLACK));
         }
     }
-
-
-
+    //endregion
 
     /**
      * An adapter that displays group information in a ListView
