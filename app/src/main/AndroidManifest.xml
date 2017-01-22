@@ -29,17 +29,18 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".MapScreen"
-            android:label="@string/title_activity_map_screen"
-            >
+            android:name=".Activities.MapScreen"
+            android:label="@string/title_activity_map_screen">
+
+        </activity>
+        <activity android:name=".Activities.SignInActivity" />
+        <activity android:name=".Activities.SignUpActivity" />
+        <activity android:name=".Activities.LoginScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-
-
             </intent-filter>
-
         </activity>
     </application>
 
