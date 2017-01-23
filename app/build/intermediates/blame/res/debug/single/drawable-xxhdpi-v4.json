@@ -608,12 +608,12 @@
         "source": "C:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\24.0.0\\res\\drawable-xxhdpi-v4\\ic_media_route_on_10_light.png"
     },
     {
-        "merged": "C:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\abc_switch_track_mtrl_alpha.9.png",
-        "source": "C:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\drawable-xxhdpi-v4\\abc_switch_track_mtrl_alpha.9.png"
-    },
-    {
         "merged": "C:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\abc_ic_star_half_black_48dp.png",
         "source": "C:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\drawable-xxhdpi-v4\\abc_ic_star_half_black_48dp.png"
+    },
+    {
+        "merged": "C:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\abc_switch_track_mtrl_alpha.9.png",
+        "source": "C:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\drawable-xxhdpi-v4\\abc_switch_track_mtrl_alpha.9.png"
     },
     {
         "merged": "C:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\ic_speaker_dark.png",

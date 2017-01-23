@@ -1,9 +1,11 @@
 package com.stuff.bizzy.Activities;
 
 import android.app.ActionBar;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -45,5 +47,10 @@ public class SignInActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    public void onLoginClicked(View v) {
+        Intent j = new Intent(getApplicationContext(), MapScreen.class);
+        startActivity(j);
     }
 }

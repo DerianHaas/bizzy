@@ -1,17 +1,13 @@
 package com.stuff.bizzy.Activities;
 
-import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
@@ -66,8 +62,7 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
     private Marker currentMarker;
     private RecyclerView groupList;
     public static GroupListAdapter adapter;
-    private final int MY_PERMISSIONS_REQUEST_LOCATION = 12;
-    private boolean isLocationEnabled;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -150,7 +145,7 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        //Request User Location Permissions
+        /*Request User Location Permissions
         if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION)
                 == PackageManager.PERMISSION_GRANTED) {
             isLocationEnabled = true;
@@ -160,7 +155,7 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
                     new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
                     MY_PERMISSIONS_REQUEST_LOCATION);
         }
-
+        */
         //Set map settings
         mMap.getUiSettings().setZoomControlsEnabled(true);
         mMap.getUiSettings().setMapToolbarEnabled(false);
@@ -190,12 +185,10 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
             @Override
             public boolean onMarkerClick(Marker marker) {
                 currentMarker = marker;
-                if (isLocationEnabled) {
-                    findViewById(R.id.createGroup).setVisibility(View.INVISIBLE);
-                    findViewById(joinGroup).setVisibility(View.VISIBLE);
-                    findViewById(joinPanel).setVisibility(View.INVISIBLE);
-                    findViewById(joinPanel).setVisibility(View.VISIBLE);
-                }
+                findViewById(R.id.profilePage).setVisibility(View.INVISIBLE);
+                findViewById(joinGroup).setVisibility(View.VISIBLE);
+                findViewById(joinPanel).setVisibility(View.INVISIBLE);
+                findViewById(joinPanel).setVisibility(View.VISIBLE);
                 return false;
             }
         });
@@ -207,7 +200,7 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
             public void onMapClick(LatLng latLng) {
                 currentMarker = null;
                 findViewById(joinGroup).setVisibility(View.INVISIBLE);
-                findViewById(R.id.createGroup).setVisibility(View.VISIBLE);
+                findViewById(R.id.profilePage).setVisibility(View.VISIBLE);
                 findViewById(joinPanel).setVisibility(View.INVISIBLE);
                 findViewById(joinPanel).setVisibility(View.VISIBLE);
             }
@@ -241,7 +234,7 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
         });
 
     }
-
+    /*
     @Override
     public void onRequestPermissionsResult(int requestCode,
                                            String permissions[], int[] grantResults) {
@@ -258,17 +251,17 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
                 new AlertDialog.Builder(this).
                         setMessage("You will not be able to create or join a group until this app can access your location!").
                         setNeutralButton("Close", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                }).show();
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        }).show();
                 isLocationEnabled = false;
                 findViewById(joinPanel).setVisibility(View.INVISIBLE);
             }
         }
     }
-
+    */
     //region keyboard hiding methods
     /**
      * Hides keyboard from activity

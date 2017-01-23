@@ -54,13 +54,14 @@
             android:id="@+id/joinGroup"
             android:layout_centerInParent="true"
             android:textSize="18sp"
-            android:onClick="onJoinGroupClick" />
+            android:onClick="onJoinGroupClick"
+            android:visibility="invisible"/>
 
         <Button
-            android:text="Create Group at Current Location"
+            android:text="Profile Page"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/createGroup"
+            android:id="@+id/profilePage"
             android:layout_centerInParent="true"
             android:textSize="14sp" />
 

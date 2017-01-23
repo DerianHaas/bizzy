@@ -42,7 +42,8 @@
         android:layout_marginTop="45dp"
         android:id="@+id/loginButton"
         android:layout_below="@+id/passwordText"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="onLoginClicked" />
 
     <TextView
         android:text="Login"
