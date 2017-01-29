@@ -4,7 +4,9 @@ import com.google.android.gms.maps.model.LatLng;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Derian on 1/5/2017.
@@ -12,26 +14,28 @@ import java.util.List;
 
 public final class GroupList {
 
-    private static List<Group> groups = new ArrayList<>();
+    public static Map<String, List<Group>> groups = new HashMap<>();
+
+
 
     public static void refreshGroupList() {
         //TODO Get groups from server
-        groups = new ArrayList<>();//example
-        groups.add((new Group(new LatLng(33.774496, -84.396266), "Test 1")));//example group
-        groups.add(new Group(new LatLng(33.774651, -84.397263), "Test 2"));//example group
-        groups.add(new Group(new LatLng(33.773615, -84.397953), "Other 3"));//example group
+        ArrayList<Group>groupList = new ArrayList<>();//example
+        groupList.add((new Group("CULC", "Test 1", "Details 1")));//example group
+        groupList.add(new Group("Student Center", "Test 2", "Details 2"));//example group
+        groupList.add(new Group("CULC", "Other 3", "Details 3"));//example group
+
+
+        for (Group g : groupList) {
+            if (groups.get(g.getBuilding()) == null) {
+                groups.put(g.getBuilding(), new ArrayList<Group>());
+            }
+            groups.get(g.getBuilding()).add(g);
+        }
     }
 
-    public static List<Group> getGroupList() {
-        return groups;
-    }
-
-    public static Group[] getGroupArray() {
-        return groups.toArray(new Group[groups.size()]);
-    }
-
-    public static List<Group> sortGroups(GroupComparator.Method method) {
-        List<Group> list = groups;
+    public static List<Group> getSortedGroups(String building, GroupComparator.Method method) {
+        List<Group> list = groups.get(building);
         Collections.sort(list, new GroupComparator(method));
         return list;
     }

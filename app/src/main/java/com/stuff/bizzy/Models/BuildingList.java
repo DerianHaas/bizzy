@@ -27,6 +27,7 @@ public final class BuildingList {
         buildings.add(new Building("Student Center", studentcenter));
     }
 
+
     private BuildingList(){}
 
 

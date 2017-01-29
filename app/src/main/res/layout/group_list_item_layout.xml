@@ -45,7 +45,7 @@
         android:contentDescription="TODO"
         android:layout_height="fill_parent" />
 
-    <Button
+    <!--<Button
         android:id="@+id/icon"
         android:layout_width="wrap_content"
         android:layout_alignParentBottom="true"
@@ -54,5 +54,5 @@
         android:layout_toRightOf="@+id/joinGroup"
         android:contentDescription="TODO"
         android:background="@android:drawable/ic_menu_mapmode"
-        android:layout_height="fill_parent" />
+        android:layout_height="fill_parent" />-->
 </RelativeLayout>

@@ -1,11 +1,6 @@
 package com.stuff.bizzy.Models;
 
 
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
-import com.stuff.bizzy.Activities.MapScreen;
-
 import java.util.HashSet;
 import java.util.Set;
 
@@ -17,39 +12,35 @@ public class Group {
 
     private Set<User> people;
     private String name;
-    private LatLng location;
-    private Building building;
+    private String details;
+    private String location;
 
     /**
      * Creates an empty (one example person) group at a specified location.
-     * @param location the location of the group
+     * @param location the building the group is in
      * @param name the name of this group
-     * @throws IllegalArgumentException If the location is not on GT campus
+     * @param details extra info for the group
      */
 
-    public Group(LatLng location, String name) {
-        if (!MapScreen.boundaries.contains(location)) {
-            throw new IllegalArgumentException("Location must be on GT campus!");
-        }
+    public Group(String location, String name, String details) {
         this.location = location;
         this.name = name;
+        this.details = details;
         people = new HashSet<>();
         people.add(new User("Someone", "...", "example@stuff.com")); //Example person
     }
 
     /**
-     * Creates an empty (one example person) group at a specified location.
-     * @param location the location of the group
+     * Creates a group at a specified location.
+     * @param location the building the group is in
      * @param name the name of this group
      * @param people the users currently in the group
-     * @throws IllegalArgumentException If the location is not on GT campus
+     * @param details extra info for the group
      */
-    public Group(LatLng location, String name, Set<User> people) {
-        if (!MapScreen.boundaries.contains(location)) {
-            throw new IllegalArgumentException("Location must be on GT campus!");
-        }
+    public Group(String location, String name, String details, Set<User> people) {
         this.location = location;
         this.name = name;
+        this.details = details;
         this.people = people;
     }
 
@@ -57,10 +48,10 @@ public class Group {
      * Creates a marker to display group information
      * @return a MarkerOptions containing the group information
      */
-    public MarkerOptions display() {
-        String title = name + "\n" + (building == null ? "" : "Building: "+ building.getName() + "\n") + "Number of People: "+people.size();
-        return new MarkerOptions().icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)).position(location).title(title);
-    }
+//    public MarkerOptions display() {
+//        String title = name + "\n" + (building == null ? "" : "Building: "+ building.getName() + "\n") + "Number of People: "+people.size();
+//        return new MarkerOptions().icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)).position(location).title(title);
+//    }
 
     /**
      * Adds a user to this group
@@ -74,15 +65,8 @@ public class Group {
     /**
      * @return the location of this group
      */
-    public LatLng getLocation() {
+    public String getBuilding() {
         return location;
-    }
-
-    /**
-     *  @param b the building this group resides in
-     */
-    public void setBuilding(Building b){
-        building = b;
     }
 
     /**
@@ -93,10 +77,10 @@ public class Group {
     }
 
     /**
-     * @return the name of the building this group resides in
+     * @return the details of this group
      */
-    public String getBuildingName() {
-        return building == null ? "" : building.getName();
+    public String getDetails() {
+        return details;
     }
 
     /**
@@ -112,7 +96,7 @@ public class Group {
             return false;
         }
         Group g = (Group) obj;
-        return g.location.equals(location) && g.people.equals(people);
+        return g.name.equals(name) && g.location.equals(location) && g.people.equals(people);
     }
 
     @Override

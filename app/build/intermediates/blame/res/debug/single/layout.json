@@ -44,6 +44,10 @@
         "source": "C:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\src\\main\\res\\layout\\activity_sign_in.xml"
     },
     {
+        "merged": "C:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\build\\intermediates\\res\\merged\\debug\\layout\\building_list_item_layout.xml",
+        "source": "C:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\src\\main\\res\\layout\\building_list_item_layout.xml"
+    },
+    {
         "merged": "C:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_view.xml",
         "source": "C:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\abc_search_view.xml"
     },
@@ -78,6 +82,10 @@
     {
         "merged": "C:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\build\\intermediates\\res\\merged\\debug\\layout\\amu_text_bubble.xml",
         "source": "C:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\build\\intermediates\\exploded-aar\\com.google.maps.android\\android-maps-utils\\0.4.4\\res\\layout\\amu_text_bubble.xml"
+    },
+    {
+        "merged": "C:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_building.xml",
+        "source": "C:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\src\\main\\res\\layout\\activity_building.xml"
     },
     {
         "merged": "C:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\build\\intermediates\\res\\merged\\debug\\layout\\mr_controller_volume_item.xml",

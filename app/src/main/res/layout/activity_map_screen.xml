@@ -12,34 +12,60 @@
         tools:context="com.stuff.bizzy.Activities.MapScreen"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" >
+        android:layout_alignParentStart="true">
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="top"
-            android:layout_marginTop="10dp"
-            android:id="@+id/listToggle"
-            android:background="@android:drawable/ic_menu_sort_by_size"
-            android:onClick="switchToListView" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:text="Display Buildings"
-            android:layout_marginTop="10dp"
-            android:onClick="toggleBuildingBorders"
-            android:id="@+id/buildingToggle" />
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/searchPanel"
+                    android:orientation="horizontal"
+                    android:background="#FFFFFF"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Search Filter: "
+                        android:textAlignment="center"
+                        android:gravity="center"
+                        />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/searchBar"
+                        android:inputType="text"
+                        android:maxLines="1" />
+
+                </LinearLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/list"
+                android:layout_below="@+id/searchPanel"
+                android:focusableInTouchMode="true"
+                android:visibility="invisible"
+                android:background="#CC808080">
+            </android.support.v7.widget.RecyclerView>
+
+
+        </RelativeLayout>
 
 
     </fragment>
 
 
 
+
     <RelativeLayout
-        android:id="@+id/joinPanel"
+        android:id="@+id/bottomPanel"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_alignBottom="@+id/map"
@@ -48,13 +74,13 @@
 
 
         <Button
-            android:text="Join this group"
+            android:text="View Building Groups"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/joinGroup"
+            android:id="@+id/buildingList"
             android:layout_centerInParent="true"
             android:textSize="18sp"
-            android:onClick="onJoinGroupClick"
+            android:onClick="switchToListView"
             android:visibility="invisible"/>
 
         <Button
@@ -67,87 +93,7 @@
 
     </RelativeLayout>
 
-    <RelativeLayout
-        android:id="@+id/listPanel"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="invisible"
-        >
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:id="@+id/listToolbar"
-            android:orientation="vertical"
-            android:clickable="true"
-            android:focusableInTouchMode="true">
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:layout_marginTop="10dp"
-                android:id="@+id/mapToggle"
-                android:background="@android:drawable/ic_menu_mapmode"
-                android:onClick="switchToMapButton" />
-
-           <LinearLayout
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:id="@+id/searchPanel"
-               android:orientation="horizontal"
-                >
-
-               <TextView
-                   android:layout_width="wrap_content"
-                   android:layout_height="match_parent"
-                   android:text="Search Filter: "
-                   android:textAlignment="center" />
-
-               <EditText
-                   android:layout_width="match_parent"
-                   android:layout_height="match_parent"
-                   android:id="@+id/searchBar"
-                   android:inputType="text"
-                   android:maxLines="1" />
-
-           </LinearLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/sortPanel"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_alignParentBottom="true">
-
-            <TextView
-                android:text="Sort groups by:"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingLeft="10dp"/>
-
-            <Spinner
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:id="@+id/sortingSpinner"
-                android:layout_weight="1" />
-        </LinearLayout>
-
-        <android.support.v7.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/list"
-            android:layout_below="@+id/listToolbar"
-            android:layout_above="@+id/sortPanel"
-            android:focusableInTouchMode="true">
-        </android.support.v7.widget.RecyclerView>
-
-
-
-    </RelativeLayout>
 
 </RelativeLayout>
 

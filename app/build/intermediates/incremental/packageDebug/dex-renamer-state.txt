@@ -1,4 +1,4 @@
-#Sun Jan 22 19:34:28 EST 2017
+#Sun Jan 29 14:28:31 EST 2017
 base.0=C\:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_2671fcd36a92deba13ee27fb40c12e3768c4044e
 renamed.1=classes2.dex
 renamed.0=classes.dex
