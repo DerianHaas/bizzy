@@ -1,7 +1,10 @@
 package com.stuff.bizzy.Models;
 
-import com.google.android.gms.maps.model.LatLng;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -18,14 +21,26 @@ public final class GroupList {
 
 
 
-    public static void refreshGroupList() {
+    public static void refreshGroupList(Context c) {
         //TODO Get groups from server
-        ArrayList<Group>groupList = new ArrayList<>();//example
-        groupList.add((new Group("CULC", "Test 1", "Details 1")));//example group
-        groupList.add(new Group("Student Center", "Test 2", "Details 2"));//example group
-        groupList.add(new Group("CULC", "Other 3", "Details 3"));//example group
+        groups = new HashMap<>();
+        List<Group> groupList = new ArrayList<>();
+        try {
+            groupList = Database.getGroups();
 
+        } catch (IOException e) {
+            new AlertDialog.Builder(c).setTitle("Database Error").setMessage("Unable to retrieve group info from server!").
+                    setNeutralButton("Close", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    }).show();
+            groupList.add((new Group("CULC", "Test 1", "Details 1")));//example group
+            groupList.add(new Group("Student Center", "Test 2", "Details 2"));//example group
+            groupList.add(new Group("CULC", "Other 3", "Details 3"));//example group
 
+        }
         for (Group g : groupList) {
             if (groups.get(g.getBuilding()) == null) {
                 groups.put(g.getBuilding(), new ArrayList<Group>());

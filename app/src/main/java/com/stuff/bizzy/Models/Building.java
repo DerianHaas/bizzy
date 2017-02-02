@@ -89,7 +89,7 @@ public class Building implements Comparable<Building> {
     }
 
     public int getNumGroups() {
-        return GroupList.groups.get(name).size();
+        return GroupList.groups.get(name) != null ? GroupList.groups.get(name).size() : 0;
     }
 
     @Override

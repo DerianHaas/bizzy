@@ -49,7 +49,7 @@ public class BuildingActivity extends AppCompatActivity {
         buildingName = getIntent().getStringExtra("building");
         TextView t = (TextView)findViewById(R.id.nameLabel);
         t.setText(buildingName);
-
+        GroupList.refreshGroupList(this);
         groupList = GroupList.getSortedGroups(buildingName, GroupComparator.Method.GROUP_SIZE);
         groupView = (RecyclerView) findViewById(R.id.list);
         groupView.setHasFixedSize(true);

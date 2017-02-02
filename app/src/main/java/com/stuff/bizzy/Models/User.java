@@ -22,6 +22,10 @@ public class User {
         friends = new HashSet<>();
     }
 
+    public User(String name) {
+        this("", name, "");
+    }
+
     public Set<User> viewFriends() {
         return friends;
     }

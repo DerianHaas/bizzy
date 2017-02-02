@@ -53,15 +53,15 @@
             android:name="com.stuff.bizzy.Activities.MapScreen"
             android:label="@string/title_activity_map_screen"
             android:windowSoftInputMode="adjustNothing" >
+        </activity>
+        <activity android:name="com.stuff.bizzy.Activities.SignInActivity" />
+        <activity android:name="com.stuff.bizzy.Activities.SignUpActivity" />
+        <activity android:name="com.stuff.bizzy.Activities.LoginScreenActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name="com.stuff.bizzy.Activities.SignInActivity" />
-        <activity android:name="com.stuff.bizzy.Activities.SignUpActivity" />
-        <activity android:name="com.stuff.bizzy.Activities.LoginScreenActivity" >
         </activity>
         <activity
             android:name="com.stuff.bizzy.Activities.BuildingActivity"
