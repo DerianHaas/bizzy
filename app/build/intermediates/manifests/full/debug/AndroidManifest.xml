@@ -52,8 +52,7 @@
         <activity
             android:name="com.stuff.bizzy.Activities.MapScreen"
             android:label="@string/title_activity_map_screen"
-            android:windowSoftInputMode="adjustNothing" >
-        </activity>
+            android:windowSoftInputMode="adjustNothing" />
         <activity android:name="com.stuff.bizzy.Activities.SignInActivity" />
         <activity android:name="com.stuff.bizzy.Activities.SignUpActivity" />
         <activity android:name="com.stuff.bizzy.Activities.LoginScreenActivity" >
@@ -66,11 +65,12 @@
         <activity
             android:name="com.stuff.bizzy.Activities.BuildingActivity"
             android:windowSoftInputMode="adjustNothing" >
->
+            >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.stuff.bizzy.Activities.MapScreen" />
         </activity>
+        <activity android:name="com.stuff.bizzy.Activities.ProfileActivity" />
         <!-- Include the AdActivity and InAppPurchaseActivity configChanges and themes. -->
         <activity
             android:name="com.google.android.gms.ads.AdActivity"

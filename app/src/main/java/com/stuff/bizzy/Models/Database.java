@@ -24,10 +24,15 @@ import static android.R.attr.id;
 
 public class Database {
 
+    private String authToken;
 
-    public static List<Group> getGroups() throws IOException {
+    public Database(String authToken){
+        this.authToken = authToken;
+    }
+
+    public List<Group> getGroups() throws IOException {
         try {
-            InputStream response = httpGet("45.55.60.233/api/studysession/");
+            InputStream response = httpGet("45.55.60.233/studysession/");
             JsonReader reader = new JsonReader(new InputStreamReader(response, "UTF-8"));
             return readGroupArray(reader);
         } catch (IOException e) {
@@ -36,7 +41,7 @@ public class Database {
         }
     }
 
-    public static List<Group> readGroupArray(JsonReader reader) throws IOException {
+    private static List<Group> readGroupArray(JsonReader reader) throws IOException {
         List<Group> groups = new ArrayList<>();
 
         reader.beginArray();
@@ -47,7 +52,7 @@ public class Database {
         return groups;
     }
 
-    public static Group readGroup(JsonReader reader) throws IOException {
+    private static Group readGroup(JsonReader reader) throws IOException {
         String groupName = null;
         String buildingName = null;
         String details = null;
@@ -82,7 +87,7 @@ public class Database {
         return g;
     }
 
-    public static User readUser(JsonReader reader) throws IOException {
+    private static User readUser(JsonReader reader) throws IOException {
         String username = "";
         String email = "";
         String password = "";
@@ -105,7 +110,7 @@ public class Database {
 
 
     private static InputStream httpGet(String urlStr) throws IOException {
-        URL url = new URL(urlStr);
+        URL url = new URL("http://"+urlStr);
         HttpURLConnection conn =
                 (HttpURLConnection) url.openConnection();
 
@@ -122,5 +127,5 @@ public class Database {
 
 
 
-    private Database(){}
+
 }
