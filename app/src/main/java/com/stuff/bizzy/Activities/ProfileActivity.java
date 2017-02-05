@@ -26,7 +26,7 @@ public class ProfileActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile_screen_activity);
+        setContentView(R.layout.activity_profile);
 
         profileText = (TextView)findViewById(R.id.profileNameText);
         yearText = (TextView)findViewById(R.id.yearText);
