@@ -25,7 +25,6 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
         android:ems="10"
         android:id="@+id/userNameText"
         android:layout_marginBottom="29dp"
@@ -33,7 +32,8 @@
         android:layout_centerHorizontal="true"
         android:textAlignment="center"
         android:maxLines="1"
-        android:hint="Username" />
+        android:hint="Email"
+        android:inputType="textEmailAddress" />
 
     <Button
         android:text="Login"

@@ -25,10 +25,9 @@ public final class GroupList {
         //TODO Get groups from server
         groups = new HashMap<>();
         List<Group> groupList = new ArrayList<>();
-        try {
-            groupList = Database.getGroups();
+//        try {
 
-        } catch (IOException e) {
+//        } catch (IOException e) {
             new AlertDialog.Builder(c).setTitle("Database Error").setMessage("Unable to retrieve group info from server!").
                     setNeutralButton("Close", new DialogInterface.OnClickListener() {
                         @Override
@@ -40,7 +39,7 @@ public final class GroupList {
             groupList.add(new Group("Student Center", "Test 2", "Details 2"));//example group
             groupList.add(new Group("CULC", "Other 3", "Details 3"));//example group
 
-        }
+//        }
         for (Group g : groupList) {
             if (groups.get(g.getBuilding()) == null) {
                 groups.put(g.getBuilding(), new ArrayList<Group>());

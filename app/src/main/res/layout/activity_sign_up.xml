@@ -3,43 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType=""
-        android:ems="10"
-        android:id="@+id/emailText"
-        android:layout_above="@+id/usernameText"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="31dp"
-        android:maxLines="1"
-        android:hint="Email" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/passwordtext"
-        android:layout_marginBottom="123dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/usernameText"
-        android:selectAllOnFocus="false"
-        android:maxLines="1"
-        android:hint="Password" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/usernameText"
-        android:layout_marginBottom="34dp"
-        android:layout_above="@+id/passwordtext"
-        android:layout_alignLeft="@+id/emailText"
-        android:maxLines="1"
-        android:hint="User Name" />
-
     <Button
         android:text="Sign Up"
         android:layout_width="wrap_content"
@@ -58,4 +21,29 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="31dp"
         android:textSize="30sp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:id="@+id/emailText"
+        android:maxLines="1"
+        android:hint="Email"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:id="@+id/passwordtext"
+        android:selectAllOnFocus="false"
+        android:maxLines="1"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:layout_below="@+id/emailText"
+        android:layout_alignLeft="@+id/emailText"
+        android:layout_alignStart="@+id/emailText"
+        android:layout_marginTop="23dp" />
 </RelativeLayout>
