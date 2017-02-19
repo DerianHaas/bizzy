@@ -8,6 +8,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,16 +21,18 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.google.android.gms.vision.text.Text;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.stuff.bizzy.Models.Database;
 import com.stuff.bizzy.Models.Group;
 import com.stuff.bizzy.Models.GroupComparator;
-import com.stuff.bizzy.Models.GroupList;
 import com.stuff.bizzy.R;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
-
-import static android.icu.lang.UCharacter.GraphemeClusterBreak.T;
 
 
 public class BuildingActivity extends AppCompatActivity {
@@ -38,7 +41,7 @@ public class BuildingActivity extends AppCompatActivity {
     private List<Group> groupList;
     private RecyclerView groupView;
     private GroupListAdapter adapter;
-
+    private DatabaseReference ref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,8 +52,9 @@ public class BuildingActivity extends AppCompatActivity {
         buildingName = getIntent().getStringExtra("building");
         TextView t = (TextView)findViewById(R.id.nameLabel);
         t.setText(buildingName);
-        GroupList.refreshGroupList(this);
-        groupList = GroupList.getSortedGroups(buildingName, GroupComparator.Method.GROUP_SIZE);
+
+
+        groupList = new ArrayList<>();
         groupView = (RecyclerView) findViewById(R.id.list);
         groupView.setHasFixedSize(true);
         adapter = new GroupListAdapter(this, groupList);
@@ -58,6 +62,44 @@ public class BuildingActivity extends AppCompatActivity {
         LinearLayoutManager llm = new LinearLayoutManager(this);
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         groupView.setLayoutManager(llm);
+
+        ref = Database.getReference("groups");
+        if (ref != null) {
+            ref.addChildEventListener(new ChildEventListener() {
+                @Override
+                public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                    Group group = dataSnapshot.getValue(Group.class);
+                    if (group.getLocation().equalsIgnoreCase(buildingName)) {
+                        Log.d("GroupList", "Found group "+group.getName());
+                        groupList.add(group);
+                        Collections.sort(groupList, new GroupComparator(GroupComparator.Method.GROUP_SIZE));
+                        adapter.notifyDataSetChanged();
+                    }
+                }
+
+                @Override
+                public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+                }
+
+                @Override
+                public void onChildRemoved(DataSnapshot dataSnapshot) {
+                    if (groupList.remove(dataSnapshot.getValue(Group.class))) {
+                        adapter.notifyDataSetChanged();
+                    }
+                }
+
+                @Override
+                public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+        }
 
         EditText filter = (EditText) findViewById(R.id.searchBar);
         filter.addTextChangedListener(new TextWatcher() {
@@ -104,9 +146,8 @@ public class BuildingActivity extends AppCompatActivity {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                groupList = GroupList.getSortedGroups(buildingName, GroupComparator.Method.values()[position]);
-                adapter = new GroupListAdapter(getApplicationContext(), groupList);
-                groupView.setAdapter(adapter);
+                Collections.sort(groupList, new GroupComparator(GroupComparator.Method.values()[position]));
+                adapter.notifyDataSetChanged();
             }
 
             @Override
@@ -149,7 +190,7 @@ public class BuildingActivity extends AppCompatActivity {
      * @param g the group to join
      */
     private void joinGroup(Group g) {
-
+        //TODO Join group and go to chat
     }
 
 
@@ -224,8 +265,7 @@ public class BuildingActivity extends AppCompatActivity {
             TextView firstLine = holder.firstLine;
             TextView secondLine = holder.secondLine;
             Button joinButton = holder.joinGroup;
-//            Button mapButton = holder.icon;
-            String numText = group.getNumPeople() + (group.getNumPeople() > 1 ? " people" : " person");
+            String numText = group.getNumPeople() + (group.getNumPeople() != 1 ? " people" : " person");
             firstLine.setText(group.getName() + " - " + numText);
             secondLine.setText(group.getDetails());
 
@@ -236,12 +276,6 @@ public class BuildingActivity extends AppCompatActivity {
                     //TODO Send call to join group
                 }
             });
-//            mapButton.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    switchToMapButton(v);
-//                }
-//            });
         }
 
         @Override

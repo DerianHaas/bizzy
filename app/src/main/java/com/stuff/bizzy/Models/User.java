@@ -1,7 +1,11 @@
 package com.stuff.bizzy.Models;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
+
+import static android.R.attr.name;
 
 /**
  * Created by Derian on 1/11/2017.
@@ -9,29 +13,23 @@ import java.util.Set;
 
 public class User {
 
-    private String username;
+    private String uid;
+
     private String password;
     private String email;
 
-    private Set<User> friends;
+    private List<User> friends;
 
-    public User(String email, String username, String password) {
-        this.username = username;
+    public User(String email, String password) {
         this.email = email;
         this.password = password;
-        friends = new HashSet<>();
+        friends = new ArrayList<>();
     }
 
-    public User(String name) {
-        this("", name, "");
-    }
+    public User() {}
 
-    public Set<User> viewFriends() {
+    public List<User> viewFriends() {
         return friends;
-    }
-
-    public String getUsername() {
-        return username;
     }
 
     public String getPassword() {
@@ -48,13 +46,13 @@ public class User {
 
     @Override
     public String toString() {
-        return username;
+        return email;
     }
 
     @Override
     public boolean equals(Object o) {
         return (this == o) || ((o != null) && (o instanceof User)
-                && (this.getUsername() == ((User) o).getUsername())
+                && (this.getEmail() == ((User) o).getEmail())
                 && (this.getPassword() == ((User) o).getPassword()));
     }
 

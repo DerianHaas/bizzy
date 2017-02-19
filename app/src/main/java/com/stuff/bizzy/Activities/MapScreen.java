@@ -27,13 +27,18 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.stuff.bizzy.Models.Building;
-import com.stuff.bizzy.Models.GroupList;
-import com.stuff.bizzy.Models.User;
+import com.stuff.bizzy.Models.Database;
 import com.stuff.bizzy.R;
 
 import java.util.ArrayList;
@@ -43,22 +48,23 @@ import java.util.List;
 import java.util.Map;
 
 import static com.stuff.bizzy.Models.BuildingList.buildings;
+import static com.stuff.bizzy.Models.BuildingList.getBuilding;
 import static com.stuff.bizzy.R.id.buildingList;
 
 
 public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
-    private User user = new User("Me", "...", "example@stuff.com"); //TODO Get current user from login/profile
 
     public static LatLngBounds boundaries = new LatLngBounds(new LatLng(33.770486, -84.407322), new LatLng(33.781467, -84.387799));
-    private Map<Marker, Building> markerMap = new HashMap<>();
+    private Map<Building, Marker> markerMap = new HashMap<>();
+    private Map<String, Integer> numGroups = new HashMap<>();
     private Marker currentMarker;
 
     private RecyclerView buildingView;
     private BuildingListAdapter adapter;
 
-
+    private DatabaseReference ref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,9 +92,50 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
         } catch (Resources.NotFoundException e) {
             Log.e("MapsActivityRaw", "Can't find style.", e);
         }
+        ref = Database.getReference("groups");
+        for (Building b : buildings) {
+            numGroups.put(b.getName(), 0);
+            markerMap.put(b, mMap.addMarker(new MarkerOptions().icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
+                    .position(b.getCenter()).visible(false)));
+        }
 
-        GroupList.refreshGroupList(this);
+        if (ref != null) {
+            ref.addChildEventListener(new ChildEventListener() {
+                @Override
+                public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                    String buildingName = dataSnapshot.child("location").getValue().toString().trim();
+                    Log.d("GroupAdded","Building: "+ buildingName);
+                    if (numGroups.get(buildingName) == null) {
+                        numGroups.put(buildingName, 0);
+                    }
+                    numGroups.put(buildingName, numGroups.get(buildingName) + 1);
+                    markerMap.get(getBuilding(buildingName)).setTitle(buildingName + "\nNumber of Groups: " + numGroups.get(buildingName));
+                    markerMap.get(getBuilding(buildingName)).setVisible(true);
+                }
 
+                @Override
+                public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+                }
+
+                @Override
+                public void onChildRemoved(DataSnapshot dataSnapshot) {
+                    String buildingName = dataSnapshot.child("location").getValue().toString().trim().toLowerCase();
+                    numGroups.put(buildingName, numGroups.get(buildingName) - 1);
+                    markerMap.get(getBuilding(buildingName)).setTitle(buildingName + "\nNumber of Groups: " + numGroups.get(buildingName));
+                }
+
+                @Override
+                public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+        }
         buildingView = (RecyclerView) findViewById(R.id.list);
         adapter = new BuildingListAdapter(getApplicationContext(), new ArrayList<>(buildings));
         buildingView.setAdapter(adapter);
@@ -144,7 +191,8 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
         mMap.setPadding(0,0,0,300);
 
         //Place Building Markers
-        placeBuildingMarkers();
+
+
 
         //Clicking on a building changes the button to "View Building Groups"
         mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
@@ -303,15 +351,16 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
      */
     public void switchToListView(View v) {
         Intent i = new Intent(getApplicationContext(), BuildingActivity.class);
-        i.putExtra("building", markerMap.get(currentMarker).getName());
+        for (Building b : markerMap.keySet()) {
+            if (markerMap.get(b).equals(currentMarker)) {
+                i.putExtra("building", b.getName());
+                break;
+            }
+        }
         startActivity(i);
     }
 
-    private void placeBuildingMarkers() {
-        for (Building b : buildings) {
-            markerMap.put(mMap.addMarker(b.display()), b);
-        }
-    }
+
 
 
     private void switchBottomPanel(int id) {
@@ -387,7 +436,7 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
             Button listButton = holder.listButton;
             Button mapButton = holder.mapButton;
             firstLine.setText(b.getName());
-            secondLine.setText("Number of Groups: " + b.getNumGroups());
+            secondLine.setText("Number of Groups: " + numGroups.get(b));
 
             final int p = holder.getAdapterPosition();
             listButton.setOnClickListener(new View.OnClickListener() {
@@ -403,13 +452,7 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
                 @Override
                 public void onClick(View v) {
                     switchBottomPanel(buildingList);
-                    Marker marker = currentMarker;
-                    for (Marker m : markerMap.keySet()) {
-                        if (markerMap.get(m).equals(buildings.get(p))) {
-                            marker = m;
-                            break;
-                        }
-                    }
+                    Marker marker = markerMap.get(buildings.get(p));
                     findViewById(R.id.list).setVisibility(View.INVISIBLE);
                     mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(marker.getPosition(), 17));
                     marker.showInfoWindow();

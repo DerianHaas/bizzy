@@ -33,7 +33,8 @@
         android:textAlignment="center"
         android:maxLines="1"
         android:hint="Email"
-        android:inputType="textEmailAddress" />
+        android:inputType="textEmailAddress"
+        />
 
     <Button
         android:text="Login"

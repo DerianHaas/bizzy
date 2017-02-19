@@ -5,13 +5,22 @@ import android.util.Log;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.Map;
 
 
 public final class Database {
 
     public static FirebaseAuth mAuth;
     public static FirebaseAuth.AuthStateListener mAuthListener;
+    private static FirebaseDatabase database;
+
+    public static FirebaseUser currentUser;
+
     private static boolean initialized = false;
+
     public static void initialize() {
         if (!initialized) {
             mAuth = FirebaseAuth.getInstance();
@@ -29,7 +38,15 @@ public final class Database {
                 }
             };
             initialized = true;
+            database = FirebaseDatabase.getInstance();
         }
+    }
+
+    public static DatabaseReference getReference(String ref) {
+        if (!initialized) {
+            initialize();
+        }
+        return database.getReference(ref);
     }
 
     public static void addListener() {
@@ -41,6 +58,7 @@ public final class Database {
             mAuth.removeAuthStateListener(mAuthListener);
         }
     }
+
 
 
 

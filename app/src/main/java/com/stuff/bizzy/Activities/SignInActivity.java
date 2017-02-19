@@ -38,7 +38,7 @@ public class SignInActivity extends AppCompatActivity {
 
         userText = (EditText)findViewById(R.id.userNameText);
         passText = (EditText)findViewById(R.id.passwordText);
-
+        userText.requestFocus();
         loginButton = (Button)findViewById(R.id.loginButton);
 
         Database.initialize();

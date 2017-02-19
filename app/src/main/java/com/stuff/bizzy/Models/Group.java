@@ -1,7 +1,13 @@
 package com.stuff.bizzy.Models;
 
 
+import com.google.firebase.database.Exclude;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -10,7 +16,7 @@ import java.util.Set;
 
 public class Group {
 
-    private Set<User> people;
+    private List<User> people;
     private String name;
     private String details;
     private String location;
@@ -26,8 +32,7 @@ public class Group {
         this.location = location;
         this.name = name;
         this.details = details;
-        people = new HashSet<>();
-        people.add(new User("Someone", "...", "example@stuff.com")); //Example person
+        people = new ArrayList<>();
     }
 
     /**
@@ -37,11 +42,15 @@ public class Group {
      * @param people the users currently in the group
      * @param details extra info for the group
      */
-    public Group(String location, String name, String details, Set<User> people) {
+    public Group(String location, String name, String details, List<User> people) {
         this.location = location;
         this.name = name;
         this.details = details;
         this.people = people;
+    }
+
+    public Group() {
+        people = new ArrayList<>();
     }
 
     /**
@@ -65,8 +74,28 @@ public class Group {
     /**
      * @return the location of this group
      */
-    public String getBuilding() {
+    public String getLocation() {
         return location;
+    }
+
+    public void setPeople(List<User> people) {
+        this.people = people;
+    }
+
+    public void setDetails(String details) {
+        this.details = details;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public List<User> getPeople() {
+        return people;
     }
 
     /**
@@ -90,6 +119,16 @@ public class Group {
         return people.size();
     }
 
+    @Exclude
+    public Map<String, Object> toMap() {
+        HashMap<String, Object> result = new HashMap<>();
+        result.put("name", name);
+        result.put("people", people);
+        result.put("location", location);
+        result.put("details", details);
+        return result;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (!(obj instanceof  Group)) {
@@ -102,5 +141,10 @@ public class Group {
     @Override
     public int hashCode() {
         return super.hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return "Group of "+getNumPeople()+" people at " + location + " named " + name;
     }
 }

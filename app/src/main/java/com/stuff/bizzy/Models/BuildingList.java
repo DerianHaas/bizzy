@@ -27,6 +27,14 @@ public final class BuildingList {
         buildings.add(new Building("Student Center", studentcenter));
     }
 
+    public static Building getBuilding(String name) {
+        for (Building b : buildings) {
+            if (b.getName().equalsIgnoreCase(name)) {
+                return b;
+            }
+        }
+        return null;
+    }
 
     private BuildingList(){}
 
