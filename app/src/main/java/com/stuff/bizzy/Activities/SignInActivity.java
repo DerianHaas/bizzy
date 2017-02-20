@@ -16,7 +16,10 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
 import com.stuff.bizzy.Models.Database;
+import com.stuff.bizzy.Models.User;
 import com.stuff.bizzy.R;
 
 
@@ -88,6 +91,9 @@ public class SignInActivity extends AppCompatActivity {
                             Toast.makeText(SignInActivity.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
                         } else {
+                            DatabaseReference ref = Database.getReference("users");
+                            FirebaseUser user =  task.getResult().getUser();
+                            ref.child(user.getUid()).setValue(new User(user));
                             Intent j = new Intent(getApplicationContext(), MapScreen.class);
                             startActivity(j);
                         }

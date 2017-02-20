@@ -5,10 +5,8 @@ import com.google.firebase.database.Exclude;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 /**
  * Created by Derian on 12/29/2016.
@@ -16,7 +14,7 @@ import java.util.Set;
 
 public class Group {
 
-    private List<User> people;
+    private List<User> users;
     private String name;
     private String details;
     private String location;
@@ -32,25 +30,25 @@ public class Group {
         this.location = location;
         this.name = name;
         this.details = details;
-        people = new ArrayList<>();
+        users = new ArrayList<>();
     }
 
     /**
      * Creates a group at a specified location.
      * @param location the building the group is in
      * @param name the name of this group
-     * @param people the users currently in the group
+     * @param users the users currently in the group
      * @param details extra info for the group
      */
-    public Group(String location, String name, String details, List<User> people) {
+    public Group(String location, String name, String details, List<User> users) {
         this.location = location;
         this.name = name;
         this.details = details;
-        this.people = people;
+        this.users = users;
     }
 
     public Group() {
-        people = new ArrayList<>();
+        users = new ArrayList<>();
     }
 
     /**
@@ -65,10 +63,9 @@ public class Group {
     /**
      * Adds a user to this group
      * @param user the user to add to the group
-     * @return whether the user was added successfully
      */
-    public boolean addToGroup(User user) {
-        return people.add(user);
+    public void addToGroup(User user) {
+        users.add(user);
     }
 
     /**
@@ -78,8 +75,8 @@ public class Group {
         return location;
     }
 
-    public void setPeople(List<User> people) {
-        this.people = people;
+    public void setUsers(List<User> people) {
+        this.users = people;
     }
 
     public void setDetails(String details) {
@@ -94,8 +91,8 @@ public class Group {
         this.location = location;
     }
 
-    public List<User> getPeople() {
-        return people;
+    public List<User> getUsers() {
+        return users;
     }
 
     /**
@@ -116,14 +113,14 @@ public class Group {
      * @return the number of people in this group
      */
     public int getNumPeople() {
-        return people.size();
+        return users.size();
     }
 
     @Exclude
     public Map<String, Object> toMap() {
         HashMap<String, Object> result = new HashMap<>();
         result.put("name", name);
-        result.put("people", people);
+        result.put("users", users);
         result.put("location", location);
         result.put("details", details);
         return result;
@@ -135,7 +132,7 @@ public class Group {
             return false;
         }
         Group g = (Group) obj;
-        return g.name.equals(name) && g.location.equals(location) && g.people.equals(people);
+        return g.name.equals(name) && g.location.equals(location) && g.users.equals(users);
     }
 
     @Override

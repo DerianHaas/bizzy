@@ -89,7 +89,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/profilePage"
             android:layout_centerInParent="true"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            android:onClick="onProfileClick"/>
 
     </RelativeLayout>
 

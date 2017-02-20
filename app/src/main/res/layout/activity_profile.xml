@@ -12,7 +12,9 @@
         android:id="@+id/profileNameText"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        android:clickable="true"
+        android:onClick="onDisplayNameClick"/>
 
     <TextView
         android:text="Year"
@@ -61,5 +63,6 @@
         android:adjustViewBounds="false"
         android:layout_alignBottom="@+id/editProfileButton"
         android:layout_alignLeft="@+id/yearText"
-        android:layout_alignStart="@+id/yearText" />
+        android:layout_alignStart="@+id/yearText"
+        android:clickable="true" />
 </RelativeLayout>

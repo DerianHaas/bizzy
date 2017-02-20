@@ -25,25 +25,38 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
-        android:ems="10"
-        android:id="@+id/emailText"
-        android:maxLines="1"
-        android:hint="Email"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:ems="10"
         android:id="@+id/passwordtext"
         android:selectAllOnFocus="false"
         android:maxLines="1"
         android:hint="Password"
         android:inputType="textPassword"
-        android:layout_below="@+id/emailText"
+        android:layout_marginTop="29dp"
+        android:layout_below="@+id/nameText"
         android:layout_alignLeft="@+id/emailText"
-        android:layout_alignStart="@+id/emailText"
-        android:layout_marginTop="23dp" />
+        android:layout_alignStart="@+id/emailText" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/nameText"
+        android:layout_marginTop="40dp"
+        android:layout_below="@+id/emailText"
+        android:layout_alignLeft="@+id/passwordtext"
+        android:layout_alignStart="@+id/passwordtext"
+        android:hint="Display Name" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:id="@+id/emailText"
+        android:maxLines="1"
+        android:hint="Email"
+        android:layout_marginTop="138dp"
+        android:layout_below="@+id/signUpTitle"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

@@ -13,11 +13,21 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.firebase.client.Firebase;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DatabaseReference;
 import com.stuff.bizzy.Models.Database;
+import com.stuff.bizzy.Models.User;
 import com.stuff.bizzy.R;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import static com.stuff.bizzy.Models.Database.mAuth;
 
 
 /**
@@ -29,6 +39,7 @@ public class SignUpActivity extends AppCompatActivity {
 
     EditText emailText;
     EditText passwordText;
+    EditText displayText;
 
     Button signUpButton;
 
@@ -47,7 +58,7 @@ public class SignUpActivity extends AppCompatActivity {
 
         emailText = (EditText) findViewById(R.id.emailText);
         passwordText = (EditText) findViewById(R.id.passwordtext);
-
+        displayText = (EditText) findViewById(R.id.nameText);
 
         signUpButton = (Button) findViewById(R.id.signUpButton);
         signUpButton.setOnClickListener(new View.OnClickListener() {
@@ -64,7 +75,7 @@ public class SignUpActivity extends AppCompatActivity {
                             }).show();
                 } else {
                     String password = passwordText.getText().toString().trim();
-                    Database.mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             Log.d(TAG, "createUserWithEmail:onComplete:" + task.isSuccessful());
@@ -76,6 +87,9 @@ public class SignUpActivity extends AppCompatActivity {
                                 Toast.makeText(SignUpActivity.this, "Authentication failed.",
                                         Toast.LENGTH_SHORT).show();
                             } else {
+                                DatabaseReference ref = Database.getReference("users");
+                                FirebaseUser user =  task.getResult().getUser();
+                                ref.child(user.getUid()).setValue(new User(user));
                                 Intent i = new Intent(getApplicationContext(), MapScreen.class);
                                 startActivity(i);
                             }

@@ -5,47 +5,33 @@
     density="xxhdpi"
     format="8"
     plugin-version="2.2.3"
-    timestamp="866011033785605"
+    timestamp="888700863157757"
     token="4625378683702770117"
-    verifier="COLD_SWAP_REQUESTED" >
+    verifier="FULL_BUILD_REQUESTED" >
 
     <task
         name="javac"
-        duration="432" />
+        duration="1091" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="95" />
+        duration="1109" />
     <task
         name="verifier"
-        duration="11" />
+        duration="311" />
 
     <artifact
-        location="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_0\classes.dex"
-        type="DEX" />
+        location="C:\Users\Derian\Documents\Android\bizzy\app\build\outputs\apk\app-debug.apk"
+        type="MAIN" />
 
     <build
-        timestamp="864241936798345"
+        timestamp="888700863157757"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="C:\Users\Derian\Documents\Android\bizzy\app\build\outputs\apk\app-debug.apk"
             type="MAIN" />
-    </build>
-    <build
-        timestamp="865930235932368"
-        verifier="COLD_SWAP_REQUESTED" >
-        <artifact
-            location="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_7\classes.dex"
-            type="DEX" />
-    </build>
-    <build
-        timestamp="866011033785605"
-        verifier="COLD_SWAP_REQUESTED" >
-        <artifact
-            location="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_0\classes.dex"
-            type="DEX" />
     </build>
 
 </instant-run>

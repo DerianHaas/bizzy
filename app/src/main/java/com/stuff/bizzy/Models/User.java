@@ -1,59 +1,88 @@
 package com.stuff.bizzy.Models;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import android.net.Uri;
 
-import static android.R.attr.name;
+import com.google.firebase.auth.FirebaseUser;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
- * Created by Derian on 1/11/2017.
+ * Created by Derian on 2/19/2017.
  */
 
 public class User {
 
     private String uid;
 
-    private String password;
+    private String displayName;
     private String email;
+    private Uri imageURL;
 
-    private List<User> friends;
-
-    public User(String email, String password) {
-        this.email = email;
-        this.password = password;
-        friends = new ArrayList<>();
-    }
+    private boolean inGroup = false;
 
     public User() {}
 
-    public List<User> viewFriends() {
-        return friends;
+    public User(String uid, String email, String displayName) {
+        this.uid = uid;
+        this.email = email;
+        this.displayName = displayName;
     }
 
-    public String getPassword() {
-        return password;
+    public User(FirebaseUser user) {
+        uid = user.getUid();
+        displayName = user.getDisplayName();
+        email = user.getEmail();
+        imageURL = user.getPhotoUrl();
     }
 
-    public String getEmail() { return email; }
-
-    public void addFriends(User... users) {
-        for (User u : users) {
-            friends.add(u);
-        }
+    public String getUid() {
+        return uid;
     }
 
-    @Override
-    public String toString() {
+    public String getEmail() {
         return email;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        return (this == o) || ((o != null) && (o instanceof User)
-                && (this.getEmail() == ((User) o).getEmail())
-                && (this.getPassword() == ((User) o).getPassword()));
+    public String getDisplayName() {
+        return displayName;
     }
 
+    public Uri getImageURL() {
+        return imageURL;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
+    }
+
+    public void setDisplayName(String displayName) {
+        this.displayName = displayName;
+    }
+
+    public void setImageURL(Uri imageURL) {
+        this.imageURL = imageURL;
+    }
+
+    public boolean isInGroup() {
+        return inGroup;
+    }
+
+    public void setInGroup(boolean inGroup) {
+        this.inGroup = inGroup;
+    }
+
+    public Map<String, Object> toMap() {
+        Map<String, Object> map = new HashMap<>();
+        map.put("uid", uid);
+        map.put("displayName", displayName);
+        map.put("imageURL", imageURL);
+        map.put("inGroup", inGroup);
+        map.put("email", email);
+        return map;
+    }
 }

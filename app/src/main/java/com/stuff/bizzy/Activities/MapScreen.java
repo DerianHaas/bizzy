@@ -325,25 +325,11 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
 
 
 
-    /**
-     * Called when the "Create Group" button is clicked
-     * @param v the current view
-     */
-    public void onCreateGroupClick(View v) {
-        //TODO Create a group and send to server
+    public void onProfileClick(View v) {
+        Intent i = new Intent(getApplicationContext(), ProfileActivity.class);
+        startActivity(i);
     }
 
-//    /**
-//     * Called when the "Display Buildings" button is clicked.
-//     * Displays the building borders and center markers.
-//     * @param v the current view
-//     */
-//    public void toggleBuildingBorders(View v) {
-//        for (Building b : buildings) {
-//            polygonMap.get(b).setVisible(!polygonMap.get(b).isVisible());
-//            b.getCenterMarker().setVisible(!b.getCenterMarker().isVisible());
-//        }
-//    }
 
     /**
      * Called when the ListToggle button is clicked
@@ -408,7 +394,6 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
          */
         public BuildingListAdapter(Context c, List<Building> b) {
             context = c;
-            Collections.sort(b, Collections.<Building>reverseOrder());
             buildings = b;
         }
 

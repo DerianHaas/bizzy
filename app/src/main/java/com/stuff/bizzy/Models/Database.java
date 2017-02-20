@@ -27,10 +27,10 @@ public final class Database {
             mAuthListener = new FirebaseAuth.AuthStateListener() {
                 @Override
                 public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                    FirebaseUser user = firebaseAuth.getCurrentUser();
-                    if (user != null) {
+                    currentUser = firebaseAuth.getCurrentUser();
+                    if (currentUser != null) {
                         // User is signed in
-                        Log.d("", "onAuthStateChanged:signed_in:" + user.getUid());
+                        Log.d("", "onAuthStateChanged:signed_in:" + currentUser.getUid());
                     } else {
                         // User is signed out
                         Log.d("", "onAuthStateChanged:signed_out");
