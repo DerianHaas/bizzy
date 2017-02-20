@@ -7,7 +7,6 @@ import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -34,9 +33,6 @@ import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.gms.tasks.Continuation;
-import com.google.android.gms.tasks.Task;
-import com.google.android.gms.tasks.TaskCompletionSource;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -45,18 +41,12 @@ import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
 import com.stuff.bizzy.Models.Building;
 import com.stuff.bizzy.Models.Database;
-import com.stuff.bizzy.Models.Group;
 import com.stuff.bizzy.R;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import static android.R.attr.y;
-import static android.icu.lang.UCharacter.GraphemeClusterBreak.L;
-import static android.icu.lang.UCharacter.GraphemeClusterBreak.T;
 
 
 public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
@@ -161,7 +151,7 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 String name = dataSnapshot.child("name").getValue(String.class);
                 GenericTypeIndicator<List<Map<String, Double>>> t = new GenericTypeIndicator<List<Map<String,Double>>>() {};
-                List<Map<String, Double>> list = dataSnapshot.child("coords").getValue(t);
+                List<Map<String, Double>> list = dataSnapshot.child("coordinates").getValue(t);
                 List<LatLng> coords = new ArrayList<>();
                 for (Map<String, Double> map : list) {
                     coords.add(new LatLng(map.get("latitude"), map.get("longitude")));
