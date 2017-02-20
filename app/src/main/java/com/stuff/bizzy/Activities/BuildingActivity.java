@@ -213,25 +213,26 @@ public class BuildingActivity extends AppCompatActivity {
     private void joinGroup(final Group g) {
         final FirebaseUser currentUser = Database.currentUser;
         final DatabaseReference ingroup = Database.getReference("users/" + currentUser.getUid() + "/inGroup");
-        ingroup.addValueEventListener(new ValueEventListener() {
+        ingroup.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 inGroup = (boolean) dataSnapshot.getValue();
                 if (!inGroup) {
-                    final User user = new User(currentUser);
-                    ref.child(idMap.get(g)).child("users").push().setValue(user)
+                    ref.child(idMap.get(g)).child("users").push().setValue(currentUser.getUid())
                             .addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()) {
                                         Toast.makeText(getApplicationContext(), "Successfully joined group", Toast.LENGTH_SHORT).show();
                                         ingroup.setValue(true);
-                                        g.addToGroup(user);
+                                        g.addToGroup(new User(currentUser));
                                         adapter.notifyDataSetChanged();
                                         //TODO Send user to group chat
                                     }
                                 }
                             });
+                } else {
+                    Toast.makeText(getApplicationContext(), "You are already in a group.", Toast.LENGTH_LONG).show();
                 }
             }
 

@@ -20,9 +20,9 @@ public class Building {
      * @param name the name of the building
      * @param coords the Lat/Long coords enclosing the location
      */
-    public Building(String name, LatLng[] coords) {
+    public Building(String name, List<LatLng> coords) {
         this.name = name;
-        shape.add(coords);
+        shape.addAll(coords);
     }
 
     /**
@@ -51,6 +51,8 @@ public class Building {
     public String getName() {
         return name;
     }
+
+
 
 
     @Override

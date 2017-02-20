@@ -7,6 +7,7 @@ import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -33,12 +34,18 @@ import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.tasks.Continuation;
+import com.google.android.gms.tasks.Task;
+import com.google.android.gms.tasks.TaskCompletionSource;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.GenericTypeIndicator;
+import com.google.firebase.database.ValueEventListener;
 import com.stuff.bizzy.Models.Building;
 import com.stuff.bizzy.Models.Database;
+import com.stuff.bizzy.Models.Group;
 import com.stuff.bizzy.R;
 
 import java.util.ArrayList;
@@ -47,9 +54,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static com.stuff.bizzy.Models.BuildingList.buildings;
-import static com.stuff.bizzy.Models.BuildingList.getBuilding;
-import static com.stuff.bizzy.R.id.buildingList;
+import static android.R.attr.y;
+import static android.icu.lang.UCharacter.GraphemeClusterBreak.L;
+import static android.icu.lang.UCharacter.GraphemeClusterBreak.T;
 
 
 public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
@@ -61,10 +68,12 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
     private Map<String, Integer> numGroups = new HashMap<>();
     private Marker currentMarker;
 
+    private List<Building> buildings;
     private RecyclerView buildingView;
     private BuildingListAdapter adapter;
 
     private DatabaseReference ref;
+    private DatabaseReference buildingRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +83,7 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
     }
 
     @Override
@@ -92,50 +102,96 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
         } catch (Resources.NotFoundException e) {
             Log.e("MapsActivityRaw", "Can't find style.", e);
         }
+        buildings = new ArrayList<>();
         ref = Database.getReference("groups");
-        for (Building b : buildings) {
-            numGroups.put(b.getName(), 0);
-            markerMap.put(b, mMap.addMarker(new MarkerOptions().icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
-                    .position(b.getCenter()).visible(false)));
-        }
+        buildingRef = Database.getReference("buildings");
 
-        if (ref != null) {
-            ref.addChildEventListener(new ChildEventListener() {
-                @Override
-                public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                    String buildingName = dataSnapshot.child("location").getValue().toString().trim();
-                    Log.d("GroupAdded","Building: "+ buildingName);
-                    if (numGroups.get(buildingName) == null) {
-                        numGroups.put(buildingName, 0);
+
+        buildingRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (Building b : buildings) {
+                    numGroups.put(b.getName(), 0);
+                    markerMap.put(b, mMap.addMarker(new MarkerOptions().icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
+                            .position(b.getCenter()).visible(false)));
+                }
+
+                ref.addChildEventListener(new ChildEventListener() {
+                    @Override
+                    public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                        String buildingName = dataSnapshot.child("location").getValue().toString().trim();
+                        Log.d("GroupAdded","Building: "+ buildingName);
+                        if (numGroups.get(buildingName) == null) {
+                            numGroups.put(buildingName, 0);
+                        }
+                        numGroups.put(buildingName, numGroups.get(buildingName) + 1);
+                        markerMap.get(getBuilding(buildingName)).setTitle(buildingName + "\nNumber of Groups: " + numGroups.get(buildingName));
+                        markerMap.get(getBuilding(buildingName)).setVisible(true);
                     }
-                    numGroups.put(buildingName, numGroups.get(buildingName) + 1);
-                    markerMap.get(getBuilding(buildingName)).setTitle(buildingName + "\nNumber of Groups: " + numGroups.get(buildingName));
-                    markerMap.get(getBuilding(buildingName)).setVisible(true);
+
+                    @Override
+                    public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+                    }
+
+                    @Override
+                    public void onChildRemoved(DataSnapshot dataSnapshot) {
+                        String buildingName = dataSnapshot.child("location").getValue().toString().trim().toLowerCase();
+                        numGroups.put(buildingName, numGroups.get(buildingName) - 1);
+                        markerMap.get(getBuilding(buildingName)).setTitle(buildingName + "\nNumber of Groups: " + numGroups.get(buildingName));
+                    }
+
+                    @Override
+                    public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                    }
+                });
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
+        buildingRef.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                String name = dataSnapshot.child("name").getValue(String.class);
+                GenericTypeIndicator<List<Map<String, Double>>> t = new GenericTypeIndicator<List<Map<String,Double>>>() {};
+                List<Map<String, Double>> list = dataSnapshot.child("coords").getValue(t);
+                List<LatLng> coords = new ArrayList<>();
+                for (Map<String, Double> map : list) {
+                    coords.add(new LatLng(map.get("latitude"), map.get("longitude")));
                 }
+                Building b = new Building(name, coords);
+                buildings.add(b);
+            }
 
-                @Override
-                public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
 
-                }
+            }
 
-                @Override
-                public void onChildRemoved(DataSnapshot dataSnapshot) {
-                    String buildingName = dataSnapshot.child("location").getValue().toString().trim().toLowerCase();
-                    numGroups.put(buildingName, numGroups.get(buildingName) - 1);
-                    markerMap.get(getBuilding(buildingName)).setTitle(buildingName + "\nNumber of Groups: " + numGroups.get(buildingName));
-                }
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
 
-                @Override
-                public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+            }
 
-                }
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
 
-                @Override
-                public void onCancelled(DatabaseError databaseError) {
+            }
 
-                }
-            });
-        }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
         buildingView = (RecyclerView) findViewById(R.id.list);
         adapter = new BuildingListAdapter(getApplicationContext(), new ArrayList<>(buildings));
         buildingView.setAdapter(adapter);
@@ -190,7 +246,7 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(boundaries.getCenter(), 17));
         mMap.setPadding(0,0,0,300);
 
-        //Place Building Markers
+
 
 
 
@@ -199,7 +255,7 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
             @Override
             public boolean onMarkerClick(Marker marker) {
                 currentMarker = marker;
-                switchBottomPanel(buildingList);
+                switchBottomPanel(R.id.buildingList);
                 return false;
             }
         });
@@ -258,12 +314,20 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
             if (filtered.isEmpty()) {
                 findViewById(R.id.list).setVisibility(View.INVISIBLE);
             } else {
-                Collections.sort(filtered, Collections.<Building>reverseOrder());
                 adapter = new BuildingListAdapter(getApplicationContext(), filtered);
                 buildingView.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
             }
         }
+    }
+
+    private Building getBuilding(String name) {
+        for (Building b : buildings) {
+            if (name.equals(b.getName())) {
+                return b;
+            }
+        }
+        return null;
     }
 
     /*
@@ -350,11 +414,11 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
 
 
     private void switchBottomPanel(int id) {
-        if (id != R.id.profilePage && id != buildingList) {
+        if (id != R.id.profilePage && id != R.id.buildingList) {
             throw new IllegalArgumentException("Can only switch profilePage and BuildingList");
         }
         findViewById(R.id.profilePage).setVisibility(View.INVISIBLE);
-        findViewById(buildingList).setVisibility(View.INVISIBLE);
+        findViewById(R.id.buildingList).setVisibility(View.INVISIBLE);
         findViewById(id).setVisibility(View.VISIBLE);
         findViewById(R.id.bottomPanel).setVisibility(View.INVISIBLE);
         findViewById(R.id.bottomPanel).setVisibility(View.VISIBLE);
@@ -436,7 +500,7 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
             mapButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    switchBottomPanel(buildingList);
+                    switchBottomPanel(R.id.buildingList);
                     Marker marker = markerMap.get(buildings.get(p));
                     findViewById(R.id.list).setVisibility(View.INVISIBLE);
                     mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(marker.getPosition(), 17));
@@ -451,5 +515,8 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
         }
     }
 
+
+
 }
+
 

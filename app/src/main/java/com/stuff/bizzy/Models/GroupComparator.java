@@ -35,9 +35,9 @@ public class GroupComparator implements Comparator<Group> {
             }
         } else {
             if (o1.getNumPeople() > o2.getNumPeople()) {
-                return 1;
-            } else if (o1.getNumPeople() < o2.getNumPeople()) {
                 return -1;
+            } else if (o1.getNumPeople() < o2.getNumPeople()) {
+                return 1;
             } else {
                 return 0;
             }
