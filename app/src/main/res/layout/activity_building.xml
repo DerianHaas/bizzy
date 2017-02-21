@@ -74,6 +74,7 @@
             android:layout_height="match_parent"
             android:id="@+id/sortingSpinner"
             android:layout_weight="1" />
+
     </LinearLayout>
 
     <android.support.v7.widget.RecyclerView
@@ -81,9 +82,19 @@
         android:layout_height="wrap_content"
         android:id="@+id/list"
         android:layout_below="@+id/listToolbar"
-        android:layout_above="@+id/sortPanel"
         android:focusableInTouchMode="true">
+
     </android.support.v7.widget.RecyclerView>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_above="@+id/sortPanel"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/createGroup"
+        android:text="Create New Group"
+        android:onClick="onCreateGroupClick"/>
 
 
 </RelativeLayout>

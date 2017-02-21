@@ -2,9 +2,9 @@ package com.stuff.bizzy.Activities;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.StringDef;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -45,6 +45,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static java.security.AccessController.getContext;
+
 
 public class BuildingActivity extends AppCompatActivity {
 
@@ -62,7 +64,7 @@ public class BuildingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_building);
 
-
+//        Get building name from intent
         buildingName = getIntent().getStringExtra("building");
         TextView t = (TextView)findViewById(R.id.nameLabel);
         t.setText(buildingName);
@@ -80,6 +82,7 @@ public class BuildingActivity extends AppCompatActivity {
 
         ref = Database.getReference("groups");
         if (ref != null) {
+//            Get list of groups currently in this building
             ref.addChildEventListener(new ChildEventListener() {
                 @Override
                 public void onChildAdded(DataSnapshot dataSnapshot, String s) {
@@ -99,7 +102,28 @@ public class BuildingActivity extends AppCompatActivity {
 
                 @Override
                 public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
+                    GenericTypeIndicator<Map<String, Object>> t = new GenericTypeIndicator<Map<String, Object>>() {};
+                    Map<String, Object> data = dataSnapshot.getValue(t);
+                    Group group = new Group(data.get("location").toString(),data.get("name").toString(),data.get("details").toString());
+                    Map<String, User> users = (Map<String, User>) data.get("users");
+                    group.setUsers(users == null ? new ArrayList<User>() : new ArrayList<>(users.values()));
+                    if (group.getLocation().equalsIgnoreCase(buildingName)) {
+                        Group foundGroup = null;
+                        for (Group g : groupList) {
+                            if (g.getName().equals(group.getName())) {
+                                foundGroup = g;
+                                break;
+                            }
+                        }
+                        if (foundGroup != null) {
+                            groupList.remove(foundGroup);
+                            idMap.remove(foundGroup);
+                            groupList.add(group);
+                            Collections.sort(groupList, new GroupComparator(GroupComparator.Method.GROUP_SIZE));
+                            adapter.notifyDataSetChanged();
+                            idMap.put(group, dataSnapshot.getKey());
+                        }
+                    }
                 }
 
                 @Override
@@ -232,6 +256,7 @@ public class BuildingActivity extends AppCompatActivity {
                                 }
                             });
                 } else {
+                    findViewById(R.id.createGroup).setVisibility(View.INVISIBLE);
                     Toast.makeText(getApplicationContext(), "You are already in a group.", Toast.LENGTH_LONG).show();
                 }
             }
@@ -255,6 +280,29 @@ public class BuildingActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    public void onCreateGroupClick(View v) {
+        final FirebaseUser currentUser = Database.currentUser;
+        final DatabaseReference ingroup = Database.getReference("users/" + currentUser.getUid() + "/inGroup");
+        ingroup.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                inGroup = (boolean) dataSnapshot.getValue();
+                if (!inGroup) {
+                    Intent i = new Intent(getApplicationContext(), CreateGroupActivity.class);
+                    i.putExtra("building", buildingName);
+                    startActivity(i);
+                } else {
+                    Toast.makeText(getApplicationContext(), "You are already in a group!", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 
     /**

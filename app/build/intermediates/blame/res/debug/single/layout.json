@@ -64,6 +64,10 @@
         "source": "C:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\src\\main\\res\\layout\\activity_login_screen_activty.xml"
     },
     {
+        "merged": "C:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_create_group.xml",
+        "source": "C:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\src\\main\\res\\layout\\activity_create_group.xml"
+    },
+    {
         "merged": "C:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_bar.xml",
         "source": "C:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\abc_action_mode_bar.xml"
     },

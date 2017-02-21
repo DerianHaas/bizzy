@@ -96,7 +96,8 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
         ref = Database.getReference("groups");
         buildingRef = Database.getReference("buildings");
 
-
+        //Note: SingleValueEvent always triggers after ChildEvents are finished,
+        //so this listener triggers once all buildings are downloaded from server.
         buildingRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -104,8 +105,9 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
                     numGroups.put(b.getName(), 0);
                     markerMap.put(b, mMap.addMarker(new MarkerOptions().icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
                             .position(b.getCenter()).visible(false)));
+//                    Create placeholder (invisible) markers
                 }
-
+//              Get groups from database and count how many groups per building
                 ref.addChildEventListener(new ChildEventListener() {
                     @Override
                     public void onChildAdded(DataSnapshot dataSnapshot, String s) {
@@ -146,6 +148,7 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
             public void onCancelled(DatabaseError databaseError) {
             }
         });
+//        Get building list from server
         buildingRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
@@ -228,6 +231,7 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
                     MY_PERMISSIONS_REQUEST_LOCATION);
         }
         */
+
         //Set map settings
         mMap.getUiSettings().setZoomControlsEnabled(true);
         mMap.getUiSettings().setMapToolbarEnabled(false);
@@ -251,7 +255,7 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
         });
 
 
-        //Clicking off the groups changes the button back to "Create Group"
+        //Clicking off the building changes the button back to "Profile Page"
         mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
             @Override
             public void onMapClick(LatLng latLng) {
@@ -289,6 +293,7 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
 
     }
 
+//    Controller for building list search filter
     private void filterBuildings(CharSequence s) {
         if (s.length() == 0) {
             findViewById(R.id.list).setVisibility(View.INVISIBLE);
@@ -311,6 +316,11 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
         }
     }
 
+    /**
+     * Get building from list based on name
+     * @param name the name of the building
+     * @return the building with the specified namw
+     */
     private Building getBuilding(String name) {
         for (Building b : buildings) {
             if (name.equals(b.getName())) {
@@ -442,7 +452,7 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
         private final List<Building> buildings;
 
         /**
-         * Creates an adapter with the specified list of groups
+         * Creates an adapter with the specified list of buildings
          * @param c the context
          * @param b the list of buildings to display
          */
