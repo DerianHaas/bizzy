@@ -119,6 +119,7 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
                         numGroups.put(buildingName, numGroups.get(buildingName) + 1);
                         markerMap.get(getBuilding(buildingName)).setTitle(buildingName + "\nNumber of Groups: " + numGroups.get(buildingName));
                         markerMap.get(getBuilding(buildingName)).setVisible(true);
+                        adapter.notifyDataSetChanged();
                     }
 
                     @Override
@@ -131,6 +132,7 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
                         String buildingName = dataSnapshot.child("location").getValue().toString().trim().toLowerCase();
                         numGroups.put(buildingName, numGroups.get(buildingName) - 1);
                         markerMap.get(getBuilding(buildingName)).setTitle(buildingName + "\nNumber of Groups: " + numGroups.get(buildingName));
+                        adapter.notifyDataSetChanged();
                     }
 
                     @Override
@@ -485,7 +487,7 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
             Button listButton = holder.listButton;
             Button mapButton = holder.mapButton;
             firstLine.setText(b.getName());
-            secondLine.setText("Number of Groups: " + numGroups.get(b));
+            secondLine.setText("Number of Groups: " + numGroups.get(b.getName()));
 
             final int p = holder.getAdapterPosition();
             listButton.setOnClickListener(new View.OnClickListener() {

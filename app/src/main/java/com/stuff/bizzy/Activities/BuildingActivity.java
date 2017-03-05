@@ -45,8 +45,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static java.security.AccessController.getContext;
-
 
 public class BuildingActivity extends AppCompatActivity {
 
@@ -240,7 +238,8 @@ public class BuildingActivity extends AppCompatActivity {
         ingroup.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                inGroup = (boolean) dataSnapshot.getValue();
+                inGroup =  dataSnapshot.getValue(Boolean.class);
+                Log.d("BuildingJoinGroup", ""+inGroup);
                 if (!inGroup) {
                     ref.child(idMap.get(g)).child("users").push().setValue(currentUser.getUid())
                             .addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -288,7 +287,7 @@ public class BuildingActivity extends AppCompatActivity {
         ingroup.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                inGroup = (boolean) dataSnapshot.getValue();
+                inGroup = dataSnapshot.getValue(Boolean.class);
                 if (!inGroup) {
                     Intent i = new Intent(getApplicationContext(), CreateGroupActivity.class);
                     i.putExtra("building", buildingName);

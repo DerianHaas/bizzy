@@ -1,7 +1,7 @@
-#Tue Feb 21 00:16:04 EST 2017
-base.0=C\:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_2671fcd36a92deba13ee27fb40c12e3768c4044e
-renamed.1=classes2.dex
-renamed.0=classes.dex
-file.1=C\:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_5d4e50efbbbe0f7195bd222c7a0667783e63bc84\\classes.dex
-base.1=C\:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_5d4e50efbbbe0f7195bd222c7a0667783e63bc84
-file.0=C\:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_2671fcd36a92deba13ee27fb40c12e3768c4044e\\classes.dex
+#Fri Mar 03 11:27:50 EST 2017
+base.0=C\:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_5d4e50efbbbe0f7195bd222c7a0667783e63bc84
+renamed.1=classes.dex
+renamed.0=classes2.dex
+file.1=C\:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_2671fcd36a92deba13ee27fb40c12e3768c4044e\\classes.dex
+base.1=C\:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_2671fcd36a92deba13ee27fb40c12e3768c4044e
+file.0=C\:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_5d4e50efbbbe0f7195bd222c7a0667783e63bc84\\classes.dex
