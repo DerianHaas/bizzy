@@ -96,12 +96,12 @@
         "source": "C:\\Users\\Derian\\.android\\build-cache\\41f7c5c4c8f0cfd31799869d7e701b0d36014ae5\\output\\res\\drawable-mdpi-v4\\ic_pause_dark.png"
     },
     {
-        "merged": "C:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\abc_btn_radio_to_on_mtrl_015.png",
-        "source": "C:\\Users\\Derian\\.android\\build-cache\\81c2a3fa153ee804e7a1e8802f3b1df079cbd365\\output\\res\\drawable-mdpi-v4\\abc_btn_radio_to_on_mtrl_015.png"
-    },
-    {
         "merged": "C:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\quantum_ic_replay_30_white_24.png",
         "source": "C:\\Users\\Derian\\.android\\build-cache\\d11d84878fce22cd8b60e56ead67c1ab3afe322c\\output\\res\\drawable-mdpi-v4\\quantum_ic_replay_30_white_24.png"
+    },
+    {
+        "merged": "C:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\abc_btn_radio_to_on_mtrl_015.png",
+        "source": "C:\\Users\\Derian\\.android\\build-cache\\81c2a3fa153ee804e7a1e8802f3b1df079cbd365\\output\\res\\drawable-mdpi-v4\\abc_btn_radio_to_on_mtrl_015.png"
     },
     {
         "merged": "C:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\abc_ic_menu_copy_mtrl_am_alpha.png",
@@ -116,12 +116,12 @@
         "source": "C:\\Users\\Derian\\.android\\build-cache\\d11d84878fce22cd8b60e56ead67c1ab3afe322c\\output\\res\\drawable-mdpi-v4\\quantum_ic_volume_off_grey600_36.png"
     },
     {
-        "merged": "C:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\quantum_ic_forward_30_white_36.png",
-        "source": "C:\\Users\\Derian\\.android\\build-cache\\d11d84878fce22cd8b60e56ead67c1ab3afe322c\\output\\res\\drawable-mdpi-v4\\quantum_ic_forward_30_white_36.png"
-    },
-    {
         "merged": "C:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\quantum_ic_play_arrow_white_24.png",
         "source": "C:\\Users\\Derian\\.android\\build-cache\\d11d84878fce22cd8b60e56ead67c1ab3afe322c\\output\\res\\drawable-mdpi-v4\\quantum_ic_play_arrow_white_24.png"
+    },
+    {
+        "merged": "C:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\quantum_ic_forward_30_white_36.png",
+        "source": "C:\\Users\\Derian\\.android\\build-cache\\d11d84878fce22cd8b60e56ead67c1ab3afe322c\\output\\res\\drawable-mdpi-v4\\quantum_ic_forward_30_white_36.png"
     },
     {
         "merged": "C:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\places_ic_clear.png",

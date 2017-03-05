@@ -64,12 +64,12 @@
         "source": "C:\\Users\\Derian\\.android\\build-cache\\d11d84878fce22cd8b60e56ead67c1ab3afe322c\\output\\res\\drawable\\cast_ic_mini_controller_rewind30.xml"
     },
     {
-        "merged": "C:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_ic_mini_controller_closed_caption.xml",
-        "source": "C:\\Users\\Derian\\.android\\build-cache\\d11d84878fce22cd8b60e56ead67c1ab3afe322c\\output\\res\\drawable\\cast_ic_mini_controller_closed_caption.xml"
-    },
-    {
         "merged": "C:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_cab_background_internal_bg.xml",
         "source": "C:\\Users\\Derian\\.android\\build-cache\\81c2a3fa153ee804e7a1e8802f3b1df079cbd365\\output\\res\\drawable\\abc_cab_background_internal_bg.xml"
+    },
+    {
+        "merged": "C:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_ic_mini_controller_closed_caption.xml",
+        "source": "C:\\Users\\Derian\\.android\\build-cache\\d11d84878fce22cd8b60e56ead67c1ab3afe322c\\output\\res\\drawable\\cast_ic_mini_controller_closed_caption.xml"
     },
     {
         "merged": "C:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_ic_notification_skip_next.xml",

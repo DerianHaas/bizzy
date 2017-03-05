@@ -12,6 +12,10 @@
         "source": "C:\\Users\\Derian\\.android\\build-cache\\a4eb7ee8f3e54b8d0136d1aa9ac1f01e5c814f7f\\output\\res\\layout\\amu_info_window.xml"
     },
     {
+        "merged": "C:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_chat.xml",
+        "source": "C:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\src\\main\\res\\layout\\activity_chat.xml"
+    },
+    {
         "merged": "C:\\Users\\Derian\\Documents\\Android\\bizzy\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_radio.xml",
         "source": "C:\\Users\\Derian\\.android\\build-cache\\81c2a3fa153ee804e7a1e8802f3b1df079cbd365\\output\\res\\layout\\abc_list_menu_item_radio.xml"
     },

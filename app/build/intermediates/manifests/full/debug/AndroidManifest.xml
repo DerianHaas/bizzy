@@ -56,11 +56,6 @@
         <activity android:name="com.stuff.bizzy.Activities.SignInActivity" />
         <activity android:name="com.stuff.bizzy.Activities.SignUpActivity" />
         <activity android:name="com.stuff.bizzy.Activities.LoginScreenActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name="com.stuff.bizzy.Activities.BuildingActivity"
@@ -72,6 +67,13 @@
         </activity>
         <activity android:name="com.stuff.bizzy.Activities.ProfileActivity" />
         <activity android:name="com.stuff.bizzy.Activities.CreateGroupActivity" />
+        <activity android:name="com.stuff.bizzy.Activities.ChatActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <!-- Include the AdActivity and InAppPurchaseActivity configChanges and themes. -->
         <activity
             android:name="com.google.android.gms.ads.AdActivity"
