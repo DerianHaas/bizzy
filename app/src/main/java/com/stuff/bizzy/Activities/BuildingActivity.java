@@ -50,12 +50,12 @@ public class BuildingActivity extends AppCompatActivity {
 
     private String buildingName;
     private List<Group> groupList;
-    private Map<Group, String> idMap;
     private RecyclerView groupView;
     private GroupListAdapter adapter;
     private DatabaseReference ref;
+    private DatabaseReference inGroupRef;
 
-    private boolean inGroup = false;
+    private String currentGroup = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,7 +69,6 @@ public class BuildingActivity extends AppCompatActivity {
 
 
         groupList = new ArrayList<>();
-        idMap = new HashMap<>();
         groupView = (RecyclerView) findViewById(R.id.list);
         groupView.setHasFixedSize(true);
         adapter = new GroupListAdapter(this, groupList);
@@ -87,14 +86,14 @@ public class BuildingActivity extends AppCompatActivity {
                     GenericTypeIndicator<Map<String, Object>> t = new GenericTypeIndicator<Map<String, Object>>() {};
                     Map<String, Object> data = dataSnapshot.getValue(t);
                     Group group = new Group(data.get("location").toString(),data.get("name").toString(),data.get("details").toString());
-                    Map<String, User> users = (Map<String, User>) data.get("users");
-                    group.setUsers(users == null ? new ArrayList<User>() : new ArrayList<>(users.values()));
+                    Map<String, Boolean> users = (Map<String, Boolean>) data.get("users");
+                    group.setUsers(users == null ? new ArrayList<String>() : new ArrayList<>(users.keySet()));
+                    group.setUid(dataSnapshot.getKey());
                     if (group.getLocation().equalsIgnoreCase(buildingName)) {
                         Log.d("GroupList", "Found group "+group.getName());
                         groupList.add(group);
                         Collections.sort(groupList, new GroupComparator(GroupComparator.Method.GROUP_SIZE));
                         adapter.notifyDataSetChanged();
-                        idMap.put(group, dataSnapshot.getKey());
                     }
                 }
 
@@ -103,24 +102,14 @@ public class BuildingActivity extends AppCompatActivity {
                     GenericTypeIndicator<Map<String, Object>> t = new GenericTypeIndicator<Map<String, Object>>() {};
                     Map<String, Object> data = dataSnapshot.getValue(t);
                     Group group = new Group(data.get("location").toString(),data.get("name").toString(),data.get("details").toString());
-                    Map<String, User> users = (Map<String, User>) data.get("users");
-                    group.setUsers(users == null ? new ArrayList<User>() : new ArrayList<>(users.values()));
+                    Map<String, Boolean> users = (Map<String, Boolean>) data.get("users");
+                    group.setUsers(users == null ? new ArrayList<String>() : new ArrayList<>(users.keySet()));
+                    group.setUid(dataSnapshot.getKey());
                     if (group.getLocation().equalsIgnoreCase(buildingName)) {
-                        Group foundGroup = null;
-                        for (Group g : groupList) {
-                            if (g.getName().equals(group.getName())) {
-                                foundGroup = g;
-                                break;
-                            }
-                        }
-                        if (foundGroup != null) {
-                            groupList.remove(foundGroup);
-                            idMap.remove(foundGroup);
+                            groupList.remove(group);
                             groupList.add(group);
                             Collections.sort(groupList, new GroupComparator(GroupComparator.Method.GROUP_SIZE));
                             adapter.notifyDataSetChanged();
-                            idMap.put(group, dataSnapshot.getKey());
-                        }
                     }
                 }
 
@@ -129,7 +118,6 @@ public class BuildingActivity extends AppCompatActivity {
                     if (groupList.remove(dataSnapshot.getValue(Group.class))) {
                         adapter.notifyDataSetChanged();
                     }
-                    idMap.remove(dataSnapshot.getValue(Group.class));
                 }
 
                 @Override
@@ -143,6 +131,23 @@ public class BuildingActivity extends AppCompatActivity {
                 }
             });
         }
+
+        inGroupRef = Database.getReference("users/"+Database.currentUser.getUid()+"/currentGroup");
+        inGroupRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                currentGroup = dataSnapshot.getValue(String.class);
+                Log.d("CurrentGroup", "Current Group: "+ currentGroup);
+                findViewById(R.id.leaveGroup).setVisibility(currentGroup.isEmpty() ? View.GONE : View.VISIBLE);
+                findViewById(R.id.createGroup).setVisibility(currentGroup.isEmpty() ? View.VISIBLE : View.GONE);
+                adapter.notifyItemRangeChanged(0, adapter.groups.size(), Collections.singletonList(currentGroup));
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 
         EditText filter = (EditText) findViewById(R.id.searchBar);
         filter.addTextChangedListener(new TextWatcher() {
@@ -234,39 +239,41 @@ public class BuildingActivity extends AppCompatActivity {
      */
     private void joinGroup(final Group g) {
         final FirebaseUser currentUser = Database.currentUser;
-        final DatabaseReference ingroup = Database.getReference("users/" + currentUser.getUid() + "/inGroup");
-        ingroup.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                inGroup =  dataSnapshot.getValue(Boolean.class);
-                Log.d("BuildingJoinGroup", ""+inGroup);
-                if (!inGroup) {
-                    ref.child(idMap.get(g)).child("users").push().setValue(currentUser.getUid())
-                            .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-                                    if (task.isSuccessful()) {
-                                        Toast.makeText(getApplicationContext(), "Successfully joined group", Toast.LENGTH_SHORT).show();
-                                        ingroup.setValue(true);
-                                        g.addToGroup(new User(currentUser));
-                                        adapter.notifyDataSetChanged();
-                                        //TODO Send user to group chat
-                                    }
-                                }
-                            });
-                } else {
-                    findViewById(R.id.createGroup).setVisibility(View.INVISIBLE);
-                    Toast.makeText(getApplicationContext(), "You are already in a group.", Toast.LENGTH_LONG).show();
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
+        if (currentGroup.isEmpty()) {
+            ref.child(g.getUid()).child("users/"+currentUser.getUid()).setValue(true)
+                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if (task.isSuccessful()) {
+                                Toast.makeText(getApplicationContext(), "Successfully joined group", Toast.LENGTH_SHORT).show();
+                                inGroupRef.setValue(g.getUid());
+                                g.addToGroup(new User(currentUser));
+                                adapter.notifyDataSetChanged();
+                                //TODO Send user to group chat
+                            } else {
+                                Toast.makeText(getApplicationContext(), "There was an error joining a group.", Toast.LENGTH_LONG).show();
+                            }
+                        }
+                    });
+        } else {
+            Toast.makeText(getApplicationContext(), "You are already in a group.", Toast.LENGTH_LONG).show();
+        }
     }
+
+    public void onLeaveGroupClicked(View v) {
+        if (!currentGroup.isEmpty()) {
+            ref.child(currentGroup+"/users/"+Database.currentUser.getUid()).removeValue(new DatabaseReference.CompletionListener() {
+                @Override
+                public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+                    inGroupRef.setValue("");
+
+                }
+            });
+        } else {
+            Toast.makeText(getApplicationContext(), "You are not currently in a group.", Toast.LENGTH_LONG).show();
+        }
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -282,27 +289,16 @@ public class BuildingActivity extends AppCompatActivity {
     }
 
     public void onCreateGroupClick(View v) {
-        final FirebaseUser currentUser = Database.currentUser;
-        final DatabaseReference ingroup = Database.getReference("users/" + currentUser.getUid() + "/inGroup");
-        ingroup.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                inGroup = dataSnapshot.getValue(Boolean.class);
-                if (!inGroup) {
-                    Intent i = new Intent(getApplicationContext(), CreateGroupActivity.class);
-                    i.putExtra("building", buildingName);
-                    startActivity(i);
-                } else {
-                    Toast.makeText(getApplicationContext(), "You are already in a group!", Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
+        if (currentGroup.isEmpty()) {
+            Intent i = new Intent(getApplicationContext(), CreateGroupActivity.class);
+            i.putExtra("building", buildingName);
+            startActivity(i);
+        } else {
+            Toast.makeText(getApplicationContext(), "You are already in a group!", Toast.LENGTH_SHORT).show();
+        }
     }
+
+
 
     /**
      * An adapter that displays group information in a ListView
@@ -322,6 +318,7 @@ public class BuildingActivity extends AppCompatActivity {
                 firstLine = (TextView) itemView.findViewById(R.id.firstLine);
                 secondLine = (TextView) itemView.findViewById(R.id.secondLine);
                 joinGroup = (Button) itemView.findViewById(R.id.joinGroup);
+                joinGroup.setVisibility(currentGroup.isEmpty() ? View.VISIBLE : View.GONE);
                 icon = (Button) itemView.findViewById(R.id.icon);
             }
         }
@@ -357,7 +354,7 @@ public class BuildingActivity extends AppCompatActivity {
 
         @Override
         public void onBindViewHolder(ViewHolder holder, int position) {
-            Group group = groups.get(position);
+            final Group group = groups.get(position);
             TextView firstLine = holder.firstLine;
             TextView secondLine = holder.secondLine;
             Button joinButton = holder.joinGroup;
@@ -369,9 +366,18 @@ public class BuildingActivity extends AppCompatActivity {
             joinButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    joinGroup(groups.get(p));
+                    joinGroup(group);
                 }
             });
+        }
+
+        @Override
+        public void onBindViewHolder(ViewHolder holder, int position, List<Object> payloads) {
+            if (payloads.isEmpty()) {
+                onBindViewHolder(holder, position);
+            } else {
+                holder.joinGroup.setVisibility(currentGroup.isEmpty() ? View.VISIBLE : View.GONE);
+            }
         }
 
         @Override

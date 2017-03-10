@@ -6,7 +6,7 @@
     density="xxhdpi"
     format="10"
     plugin-version="2.3.0"
-    timestamp="1488752212752"
+    timestamp="1489122977472"
     token="4625378683702770117"
     verifier="COLD_SWAP_REQUESTED" >
 
@@ -25,10 +25,34 @@
 
     <build
         build-mode="FULL"
-        timestamp="1488752055048"
+        timestamp="1489117159147"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
+            location="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\split-apk\debug\dep\dependencies.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
+            type="SPLIT" />
+        <artifact
             location="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\split-apk\debug\slices\slice_6.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
             type="SPLIT" />
         <artifact
             location="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
@@ -37,28 +61,21 @@
             location="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
-            type="SPLIT" />
+            location="C:\Users\Derian\Documents\Android\bizzy\app\build\outputs\apk\app-debug.apk"
+            type="SPLIT_MAIN" />
+    </build>
+    <build
+        build-mode="COLD"
+        timestamp="1489120054445"
+        verifier="COLD_SWAP_REQUESTED" >
         <artifact
-            location="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\split-apk\debug\dep\dependencies.apk"
-            type="SPLIT" />
-        <artifact
-            location="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
-            type="SPLIT" />
-        <artifact
-            location="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
-            type="SPLIT" />
-        <artifact
-            location="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
+            location="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\split-apk\debug\slices\slice_6.apk"
             type="SPLIT" />
         <artifact
             location="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
-            type="SPLIT" />
-        <artifact
-            location="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\split-apk\debug\slices\slice_6.apk"
+            location="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
             type="SPLIT" />
         <artifact
             location="C:\Users\Derian\Documents\Android\bizzy\app\build\outputs\apk\app-debug.apk"
@@ -66,7 +83,23 @@
     </build>
     <build
         build-mode="COLD"
-        timestamp="1488752212752"
+        timestamp="1489122197171"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
+            type="SPLIT" />
+    </build>
+    <build
+        build-mode="COLD"
+        timestamp="1489122713688"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="C:\Users\Derian\Documents\Android\bizzy\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
+            type="SPLIT" />
+    </build>
+    <build
+        build-mode="COLD"
+        timestamp="1489122977472"
         verifier="COLD_SWAP_REQUESTED" />
 
 </instant-run>

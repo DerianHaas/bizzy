@@ -76,25 +76,42 @@
             android:layout_weight="1" />
 
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/createLeavePanel"
+        android:layout_above="@+id/sortPanel"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp">
+
+        <Button
+            android:id="@+id/createGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onCreateGroupClick"
+            android:text="Create New Group" />
+        <Button
+            android:id="@+id/leaveGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onLeaveGroupClicked"
+            android:text="Leave Current Group"
+            android:visibility="gone"/>
+    </LinearLayout>
+
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/list"
+        android:layout_above="@id/createLeavePanel"
         android:layout_below="@+id/listToolbar"
-        android:focusableInTouchMode="true">
+        android:focusableInTouchMode="true"
+        android:scrollbars="vertical">
 
     </android.support.v7.widget.RecyclerView>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:layout_above="@+id/sortPanel"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/createGroup"
-        android:text="Create New Group"
-        android:onClick="onCreateGroupClick"/>
+
 
 
 </RelativeLayout>

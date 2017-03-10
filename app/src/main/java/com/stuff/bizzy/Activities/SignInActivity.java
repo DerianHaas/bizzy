@@ -91,9 +91,6 @@ public class SignInActivity extends AppCompatActivity {
                             Toast.makeText(SignInActivity.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
                         } else {
-                            DatabaseReference ref = Database.getReference("users");
-                            FirebaseUser user =  task.getResult().getUser();
-                            ref.child(user.getUid()).setValue(new User(user));
                             Intent j = new Intent(getApplicationContext(), MapScreen.class);
                             startActivity(j);
                         }

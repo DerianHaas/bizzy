@@ -18,16 +18,9 @@ public class User {
     private String displayName;
     private String email;
     private Uri imageURL;
-
-    private boolean inGroup = false;
+    private String currentGroup = "";
 
     public User() {}
-
-    public User(String uid, String email, String displayName) {
-        this.uid = uid;
-        this.email = email;
-        this.displayName = displayName;
-    }
 
     public User(FirebaseUser user) {
         uid = user.getUid();
@@ -68,12 +61,12 @@ public class User {
         this.imageURL = imageURL;
     }
 
-    public boolean isInGroup() {
-        return inGroup;
+    public String isCurrentGroup() {
+        return currentGroup;
     }
 
-    public void setInGroup(boolean inGroup) {
-        this.inGroup = inGroup;
+    public void setCurrentGroup(String currentGroup) {
+        this.currentGroup = currentGroup;
     }
 
     public Map<String, Object> toMap() {
@@ -81,7 +74,7 @@ public class User {
         map.put("uid", uid);
         map.put("displayName", displayName);
         map.put("imageURL", imageURL);
-        map.put("inGroup", inGroup);
+        map.put("currentGroup", currentGroup);
         map.put("email", email);
         return map;
     }

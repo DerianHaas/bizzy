@@ -90,6 +90,7 @@ public class SignUpActivity extends AppCompatActivity {
                                 DatabaseReference ref = Database.getReference("users");
                                 FirebaseUser user =  task.getResult().getUser();
                                 ref.child(user.getUid()).setValue(new User(user));
+                                ref.child(user.getUid() + "/currentGroup").setValue("");
                                 Intent i = new Intent(getApplicationContext(), MapScreen.class);
                                 startActivity(i);
                             }

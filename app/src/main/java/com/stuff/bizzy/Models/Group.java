@@ -14,10 +14,11 @@ import java.util.Map;
 
 public class Group {
 
-    private List<User> users;
+    private List<String> users;
     private String name;
     private String details;
     private String location;
+    private String uid;
 
     /**
      * Creates an empty (one example person) group at a specified location.
@@ -40,7 +41,7 @@ public class Group {
      * @param users the users currently in the group
      * @param details extra info for the group
      */
-    public Group(String location, String name, String details, List<User> users) {
+    public Group(String location, String name, String details, List<String> users) {
         this.location = location;
         this.name = name;
         this.details = details;
@@ -65,7 +66,7 @@ public class Group {
      * @param user the user to add to the group
      */
     public void addToGroup(User user) {
-        users.add(user);
+        users.add(user.getUid());
     }
 
     /**
@@ -75,7 +76,7 @@ public class Group {
         return location;
     }
 
-    public void setUsers(List<User> people) {
+    public void setUsers(List<String> people) {
         this.users = people;
     }
 
@@ -91,7 +92,7 @@ public class Group {
         this.location = location;
     }
 
-    public List<User> getUsers() {
+    public List<String> getUsers() {
         return users;
     }
 
@@ -116,6 +117,14 @@ public class Group {
         return users.size();
     }
 
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
+    }
+
     @Exclude
     public Map<String, Object> toMap() {
         HashMap<String, Object> result = new HashMap<>();
@@ -128,20 +137,15 @@ public class Group {
 
     @Override
     public boolean equals(Object obj) {
-        if (!(obj instanceof  Group)) {
+        if (!(obj instanceof Group)) {
             return false;
         }
         Group g = (Group) obj;
-        return g.name.equals(name) && g.location.equals(location) && g.users.equals(users);
+        return g.uid.equals(uid);
     }
 
     @Override
     public int hashCode() {
-        return super.hashCode();
-    }
-
-    @Override
-    public String toString() {
-        return "Group of "+getNumPeople()+" people at " + location + " named " + name;
+        return uid.hashCode();
     }
 }
