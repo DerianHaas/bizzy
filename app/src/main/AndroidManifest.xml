@@ -33,7 +33,12 @@
         <activity
             android:name=".Activities.MapScreen"
             android:label="@string/title_activity_map_screen"
-            android:windowSoftInputMode="adjustNothing" />
+            android:windowSoftInputMode="adjustNothing">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity >
         <activity android:name=".Activities.SignInActivity" />
         <activity android:name=".Activities.SignUpActivity" />
         <activity android:name=".Activities.LoginScreenActivity">
@@ -50,11 +55,7 @@
         <activity android:name=".Activities.ProfileActivity" />
         <activity android:name=".Activities.CreateGroupActivity" />
         <activity android:name=".Activities.SQLTestActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

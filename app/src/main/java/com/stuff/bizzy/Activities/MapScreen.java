@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -40,9 +41,14 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
 import com.stuff.bizzy.Models.Building;
+import com.stuff.bizzy.Models.ConnectionClass;
 import com.stuff.bizzy.Models.Database;
 import com.stuff.bizzy.R;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -55,15 +61,13 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
 
     public static LatLngBounds boundaries = new LatLngBounds(new LatLng(33.770486, -84.407322), new LatLng(33.781467, -84.387799));
     private Map<Building, Marker> markerMap = new HashMap<>();
-    private Map<String, Integer> numGroups = new HashMap<>();
     private Marker currentMarker;
 
     private List<Building> buildings;
     private RecyclerView buildingView;
     private BuildingListAdapter adapter;
 
-    private DatabaseReference ref;
-    private DatabaseReference buildingRef;
+    private ConnectionClass connectionClass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,99 +97,6 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
             Log.e("MapsActivityRaw", "Can't find style.", e);
         }
         buildings = new ArrayList<>();
-        ref = Database.getReference("groups");
-        buildingRef = Database.getReference("buildings");
-
-        //Note: SingleValueEvent always triggers after ChildEvents are finished,
-        //so this listener triggers once all buildings are downloaded from server.
-        buildingRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (Building b : buildings) {
-                    numGroups.put(b.getName(), 0);
-                    markerMap.put(b, mMap.addMarker(new MarkerOptions().icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
-                            .position(b.getCenter()).visible(false)));
-//                    Create placeholder (invisible) markers
-                }
-//              Get groups from database and count how many groups per building
-                ref.addChildEventListener(new ChildEventListener() {
-                    @Override
-                    public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                        String buildingName = dataSnapshot.child("location").getValue().toString().trim();
-                        Log.d("GroupAdded","Building: "+ buildingName);
-                        if (numGroups.get(buildingName) == null) {
-                            numGroups.put(buildingName, 0);
-                        }
-                        numGroups.put(buildingName, numGroups.get(buildingName) + 1);
-                        markerMap.get(getBuilding(buildingName)).setTitle(buildingName + "\nNumber of Groups: " + numGroups.get(buildingName));
-                        markerMap.get(getBuilding(buildingName)).setVisible(true);
-                        adapter.notifyDataSetChanged();
-                    }
-
-                    @Override
-                    public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-                    }
-
-                    @Override
-                    public void onChildRemoved(DataSnapshot dataSnapshot) {
-                        String buildingName = dataSnapshot.child("location").getValue().toString().trim().toLowerCase();
-                        numGroups.put(buildingName, numGroups.get(buildingName) - 1);
-                        markerMap.get(getBuilding(buildingName)).setTitle(buildingName + "\nNumber of Groups: " + numGroups.get(buildingName));
-                        adapter.notifyDataSetChanged();
-                    }
-
-                    @Override
-                    public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-                    }
-
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-                    }
-                });
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
-        });
-//        Get building list from server
-        buildingRef.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                String name = dataSnapshot.child("name").getValue(String.class);
-                GenericTypeIndicator<List<Map<String, Double>>> t = new GenericTypeIndicator<List<Map<String,Double>>>() {};
-                List<Map<String, Double>> list = dataSnapshot.child("coordinates").getValue(t);
-                List<LatLng> coords = new ArrayList<>();
-                for (Map<String, Double> map : list) {
-                    coords.add(new LatLng(map.get("latitude"), map.get("longitude")));
-                }
-                Building b = new Building(name, coords);
-                buildings.add(b);
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
 
         buildingView = (RecyclerView) findViewById(R.id.list);
         adapter = new BuildingListAdapter(getApplicationContext(), new ArrayList<>(buildings));
@@ -193,6 +104,10 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
         LinearLayoutManager llm = new LinearLayoutManager(this);
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         buildingView.setLayoutManager(llm);
+
+        connectionClass = new ConnectionClass();
+        BuildingQuery query = new BuildingQuery();
+        query.execute();
 
         final EditText filter = (EditText) findViewById(R.id.searchBar);
         filter.addTextChangedListener(new TextWatcher() {
@@ -237,8 +152,8 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
         //Set map settings
         mMap.getUiSettings().setZoomControlsEnabled(true);
         mMap.getUiSettings().setMapToolbarEnabled(false);
-        mMap.setLatLngBoundsForCameraTarget(boundaries);
-        mMap.setMinZoomPreference(16);
+//        mMap.setLatLngBoundsForCameraTarget(boundaries);
+//        mMap.setMinZoomPreference(16);
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(boundaries.getCenter(), 17));
         mMap.setPadding(0,0,0,300);
 
@@ -316,20 +231,6 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
                 adapter.notifyDataSetChanged();
             }
         }
-    }
-
-    /**
-     * Get building from list based on name
-     * @param name the name of the building
-     * @return the building with the specified namw
-     */
-    private Building getBuilding(String name) {
-        for (Building b : buildings) {
-            if (name.equals(b.getName())) {
-                return b;
-            }
-        }
-        return null;
     }
 
     /*
@@ -487,7 +388,7 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
             Button listButton = holder.listButton;
             Button mapButton = holder.mapButton;
             firstLine.setText(b.getName());
-            secondLine.setText("Number of Groups: " + numGroups.get(b.getName()));
+            secondLine.setText("Number of Groups: " + b.getNumGroups());
 
             final int p = holder.getAdapterPosition();
             listButton.setOnClickListener(new View.OnClickListener() {
@@ -517,8 +418,47 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
         }
     }
 
+    private class BuildingQuery extends AsyncTask<Void, Void, List<Building>> {
 
+        @Override
+        protected List<Building> doInBackground(Void... params) {
+            try {
+                Connection con = connectionClass.CONN();
+                if (con == null) {
+                    Log.e("Connection", "Couldn't connect to the database.");
+                    return new ArrayList<>();
+                } else {
+                    String query = "EXECUTE [dbo].[uspGroupCount]";
+                    Statement stmt = con.createStatement();
+                    ResultSet rs = stmt.executeQuery(query);
+                    List<Building> data = new ArrayList<>();
+                    while (rs.next()) {
+                        String name = rs.getString("Name");
+                        float lat = rs.getFloat("Latitude");
+                        float lng = rs.getFloat("Longitude");
+                        int numGroups = rs.getInt("GroupCount");
+                        data.add(new Building(name, new LatLng(lat, lng), numGroups));
+                        Log.d("Building", "Building "+name+" created at ("+lat+", "+lng+")");
+                    }
+                    return data;
+                }
+            } catch (SQLException e) {
+                Log.e("Connection", "SQL Exception Occurred: "+e.getMessage());
+                return new ArrayList<>();
+            }
+        }
 
+        @Override
+        protected void onPostExecute(List<Building> buildingList) {
+            mMap.clear();
+            buildings = buildingList;
+            adapter.notifyDataSetChanged();
+            for (Building b : buildings) {
+                markerMap.put(b, mMap.addMarker(new MarkerOptions().icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
+                        .position(b.getCenter()).title(b.getName() + "\nNumber of Groups: " + b.getNumGroups())));
+            }
+        }
+    }
 }
 
 
