@@ -9,7 +9,7 @@ import java.util.Comparator;
 public class GroupComparator implements Comparator<Group> {
 
     public enum Method {
-        GROUP_SIZE, GROUP_NAME, BUILDING_NAME
+        GROUP_SIZE, GROUP_NAME
     }
 
 
@@ -23,20 +23,10 @@ public class GroupComparator implements Comparator<Group> {
     public int compare(Group o1, Group o2) {
         if (method == Method.GROUP_NAME) {
             return o1.getName().compareToIgnoreCase(o2.getName());
-        } else if (method == Method.BUILDING_NAME) {
-            if (o1.getLocation().isEmpty() && o2.getLocation().isEmpty()) {
-                return 0;
-            } else if (o1.getLocation().isEmpty()) {
-                return 1;
-            } else if (o2.getLocation().isEmpty()) {
-                return -1;
-            } else {
-                return o1.getLocation().compareToIgnoreCase(o2.getLocation());
-            }
         } else {
-            if (o1.getNumPeople() > o2.getNumPeople()) {
+            if (o1.getNumMembers() > o2.getNumMembers()) {
                 return -1;
-            } else if (o1.getNumPeople() < o2.getNumPeople()) {
+            } else if (o1.getNumMembers() < o2.getNumMembers()) {
                 return 1;
             } else {
                 return 0;

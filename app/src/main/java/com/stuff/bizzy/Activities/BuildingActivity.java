@@ -3,8 +3,8 @@ package com.stuff.bizzy.Activities;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -24,25 +24,18 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.ChildEventListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.GenericTypeIndicator;
-import com.google.firebase.database.ValueEventListener;
-import com.stuff.bizzy.Models.Database;
+import com.stuff.bizzy.Models.ConnectionClass;
 import com.stuff.bizzy.Models.Group;
 import com.stuff.bizzy.Models.GroupComparator;
-import com.stuff.bizzy.Models.User;
 import com.stuff.bizzy.R;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Map;
 
 
 public class BuildingActivity extends AppCompatActivity {
@@ -51,10 +44,9 @@ public class BuildingActivity extends AppCompatActivity {
     private List<Group> groupList;
     private RecyclerView groupView;
     private GroupListAdapter adapter;
-    private DatabaseReference ref;
-    private DatabaseReference inGroupRef;
-
     private String currentGroup = "";
+
+    private ConnectionClass connectionClass = new ConnectionClass();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,78 +67,12 @@ public class BuildingActivity extends AppCompatActivity {
         LinearLayoutManager llm = new LinearLayoutManager(this);
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         groupView.setLayoutManager(llm);
+        groupView.setHasFixedSize(true);
 
-        ref = Database.getReference("groups");
-        if (ref != null) {
-//            Get list of groups currently in this building
-            ref.addChildEventListener(new ChildEventListener() {
-                @Override
-                public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                    GenericTypeIndicator<Map<String, Object>> t = new GenericTypeIndicator<Map<String, Object>>() {};
-                    Map<String, Object> data = dataSnapshot.getValue(t);
-                    Group group = new Group(data.get("location").toString(),data.get("name").toString(),data.get("details").toString());
-                    Map<String, Boolean> users = (Map<String, Boolean>) data.get("users");
-                    group.setUsers(users == null ? new ArrayList<String>() : new ArrayList<>(users.keySet()));
-                    group.setUid(dataSnapshot.getKey());
-                    if (group.getLocation().equalsIgnoreCase(buildingName)) {
-                        Log.d("GroupList", "Found group "+group.getName());
-                        groupList.add(group);
-                        Collections.sort(groupList, new GroupComparator(GroupComparator.Method.GROUP_SIZE));
-                        adapter.notifyDataSetChanged();
-                    }
-                }
+        GroupQuery query = new GroupQuery();
+        query.execute();
 
-                @Override
-                public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-                    GenericTypeIndicator<Map<String, Object>> t = new GenericTypeIndicator<Map<String, Object>>() {};
-                    Map<String, Object> data = dataSnapshot.getValue(t);
-                    Group group = new Group(data.get("location").toString(),data.get("name").toString(),data.get("details").toString());
-                    Map<String, Boolean> users = (Map<String, Boolean>) data.get("users");
-                    group.setUsers(users == null ? new ArrayList<String>() : new ArrayList<>(users.keySet()));
-                    group.setUid(dataSnapshot.getKey());
-                    if (group.getLocation().equalsIgnoreCase(buildingName)) {
-                            groupList.remove(group);
-                            groupList.add(group);
-                            Collections.sort(groupList, new GroupComparator(GroupComparator.Method.GROUP_SIZE));
-                            adapter.notifyDataSetChanged();
-                    }
-                }
 
-                @Override
-                public void onChildRemoved(DataSnapshot dataSnapshot) {
-                    if (groupList.remove(dataSnapshot.getValue(Group.class))) {
-                        adapter.notifyDataSetChanged();
-                    }
-                }
-
-                @Override
-                public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-                }
-
-                @Override
-                public void onCancelled(DatabaseError databaseError) {
-
-                }
-            });
-        }
-
-        inGroupRef = Database.getReference("users/"+Database.currentUser.getUid()+"/currentGroup");
-        inGroupRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                currentGroup = dataSnapshot.getValue(String.class);
-                Log.d("CurrentGroup", "Current Group: "+ currentGroup);
-                findViewById(R.id.leaveGroup).setVisibility(currentGroup.isEmpty() ? View.GONE : View.VISIBLE);
-                findViewById(R.id.createGroup).setVisibility(currentGroup.isEmpty() ? View.VISIBLE : View.GONE);
-                adapter.notifyItemRangeChanged(0, adapter.groups.size(), Collections.singletonList(currentGroup));
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
 
         EditText filter = (EditText) findViewById(R.id.searchBar);
         filter.addTextChangedListener(new TextWatcher() {
@@ -157,7 +83,7 @@ public class BuildingActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                ArrayList<Group> filtered = new ArrayList<Group>();
+                ArrayList<Group> filtered = new ArrayList<>();
                 for (Group g : groupList) {
                     if (g.getName().contains(s)) {
                         filtered.add(g);
@@ -237,37 +163,11 @@ public class BuildingActivity extends AppCompatActivity {
      * @param g the group to join
      */
     private void joinGroup(final Group g) {
-        final FirebaseUser currentUser = Database.currentUser;
-        if (currentGroup.isEmpty()) {
-            ref.child(g.getUid()).child("users/"+currentUser.getUid()).setValue(true)
-                    .addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            if (task.isSuccessful()) {
-                                Toast.makeText(getApplicationContext(), "Successfully joined group", Toast.LENGTH_SHORT).show();
-                                inGroupRef.setValue(g.getUid());
-                                g.addToGroup(new User(currentUser));
-                                adapter.notifyDataSetChanged();
-                                //TODO Send user to group chat
-                            } else {
-                                Toast.makeText(getApplicationContext(), "There was an error joining a group.", Toast.LENGTH_LONG).show();
-                            }
-                        }
-                    });
-        } else {
-            Toast.makeText(getApplicationContext(), "You are already in a group.", Toast.LENGTH_LONG).show();
-        }
     }
 
     public void onLeaveGroupClicked(View v) {
         if (!currentGroup.isEmpty()) {
-            ref.child(currentGroup+"/users/"+Database.currentUser.getUid()).removeValue(new DatabaseReference.CompletionListener() {
-                @Override
-                public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
-                    inGroupRef.setValue("");
 
-                }
-            });
         } else {
             Toast.makeText(getApplicationContext(), "You are not currently in a group.", Toast.LENGTH_LONG).show();
         }
@@ -357,7 +257,7 @@ public class BuildingActivity extends AppCompatActivity {
             TextView firstLine = holder.firstLine;
             TextView secondLine = holder.secondLine;
             Button joinButton = holder.joinGroup;
-            String numText = group.getNumPeople() + (group.getNumPeople() != 1 ? " people" : " person");
+            String numText = group.getNumMembers() + (group.getNumMembers() != 1 ? " people" : " person");
             firstLine.setText(group.getName() + " - " + numText);
             secondLine.setText(group.getDetails());
 
@@ -382,6 +282,43 @@ public class BuildingActivity extends AppCompatActivity {
         @Override
         public int getItemCount() {
             return groups.size();
+        }
+    }
+
+
+    private class GroupQuery extends AsyncTask<Void, Void, List<Group>> {
+
+        @Override
+        protected List<Group> doInBackground(Void... params) {
+            try {
+                Connection con = connectionClass.CONN();
+                if (con == null) {
+                    Log.e("Connection", "Couldn't connect to the database.");
+                    return new ArrayList<>();
+                } else {
+                    String query = "EXECUTE [dbo].[uspMemberCount] @strBuildingName = " + buildingName;
+                    Statement stmt = con.createStatement();
+                    ResultSet rs = stmt.executeQuery(query);
+                    List<Group> data = new ArrayList<>();
+                    while (rs.next()) {
+                        String name = rs.getString("Name");
+                        int numMembers = rs.getInt("MemberCount");
+                        data.add(new Group(name, "", numMembers));
+                        Log.d("Group", "Group "+name+" with "+numMembers+" members");
+                    }
+                    return data;
+                }
+            } catch (SQLException e) {
+                Log.e("Connection", "SQL Exception Occurred: "+e.getMessage());
+                return new ArrayList<>();
+            }
+        }
+
+        @Override
+        protected void onPostExecute(List<Group> groups) {
+            groupList = groups;
+//            Collections.sort(groupList, new GroupComparator(GroupComparator.Method.GROUP_SIZE));
+            adapter.notifyDataSetChanged();
         }
     }
 }

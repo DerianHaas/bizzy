@@ -37,25 +37,25 @@ public class CreateGroupActivity extends AppCompatActivity {
     }
 
     public void onCreateClicked(View v) {
-        Group g = new Group(buildingName, nameText.getText().toString().trim(), detailsText.getText().toString());
-        DatabaseReference ref = Database.getReference("groups");
-        String key = ref.push().getKey();
-        ref.child(key).setValue(g.toMap());
-        ref.child(key).child("users").push().setValue(Database.currentUser.getUid()).addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if (task.isSuccessful()) {
-                    DatabaseReference userref = Database.getReference("users/"+Database.currentUser.getUid());
-                    userref.child("inGroup").setValue(true).addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            finish();
-                        }
-                    });
-                } else {
-                    Toast.makeText(getApplicationContext(), "Error creating group.", Toast.LENGTH_LONG);
-                }
-            }
-        });
+//        Group g = new Group(buildingName, nameText.getText().toString().trim(), detailsText.getText().toString());
+//        DatabaseReference ref = Database.getReference("groups");
+//        String key = ref.push().getKey();
+//        ref.child(key).setValue(g.toMap());
+//        ref.child(key).child("users").push().setValue(Database.currentUser.getUid()).addOnCompleteListener(new OnCompleteListener<Void>() {
+//            @Override
+//            public void onComplete(@NonNull Task<Void> task) {
+//                if (task.isSuccessful()) {
+//                    DatabaseReference userref = Database.getReference("users/"+Database.currentUser.getUid());
+//                    userref.child("inGroup").setValue(true).addOnCompleteListener(new OnCompleteListener<Void>() {
+//                        @Override
+//                        public void onComplete(@NonNull Task<Void> task) {
+//                            finish();
+//                        }
+//                    });
+//                } else {
+//                    Toast.makeText(getApplicationContext(), "Error creating group.", Toast.LENGTH_LONG);
+//                }
+//            }
+//        });
     }
 }

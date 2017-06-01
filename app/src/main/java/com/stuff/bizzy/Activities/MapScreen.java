@@ -451,6 +451,7 @@ public class MapScreen extends FragmentActivity implements OnMapReadyCallback {
         @Override
         protected void onPostExecute(List<Building> buildingList) {
             mMap.clear();
+            markerMap.clear();
             buildings = buildingList;
             adapter.notifyDataSetChanged();
             for (Building b : buildings) {
