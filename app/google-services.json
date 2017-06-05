@@ -1,35 +1,27 @@
 {
   "project_info": {
-    "project_number": "202425658707",
-    "firebase_url": "https://bizzy-e6009.firebaseio.com",
-    "project_id": "bizzy-e6009",
-    "storage_bucket": "bizzy-e6009.appspot.com"
+    "project_number": "836371382086",
+    "firebase_url": "https://studygroups-668b7.firebaseio.com",
+    "project_id": "studygroups-668b7",
+    "storage_bucket": "studygroups-668b7.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:202425658707:android:2a251e0cae59f224",
+        "mobilesdk_app_id": "1:836371382086:android:2a251e0cae59f224",
         "android_client_info": {
           "package_name": "com.stuff.bizzy"
         }
       },
       "oauth_client": [
         {
-          "client_id": "202425658707-i5kr08gk12j8gqm4msh9o8d5eod45t8j.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.stuff.bizzy",
-            "certificate_hash": "45F91EF70703DBFA2D85A364BFB366A844BE33DC"
-          }
-        },
-        {
-          "client_id": "202425658707-eolo58ogrdpf9keeujj6b0vmtgd322ul.apps.googleusercontent.com",
+          "client_id": "836371382086-g947foelfsl080d49skat4b3615a8u5o.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyC-708Cl1U0kK57x36PGrw0pso-pE150nc"
+          "current_key": "AIzaSyCHXdx8cXNSX3ko080afVtS89vnKPsxkw4"
         }
       ],
       "services": {
@@ -37,13 +29,8 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 2,
-          "other_platform_oauth_client": [
-            {
-              "client_id": "202425658707-eolo58ogrdpf9keeujj6b0vmtgd322ul.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "status": 1,
+          "other_platform_oauth_client": []
         },
         "ads_service": {
           "status": 2

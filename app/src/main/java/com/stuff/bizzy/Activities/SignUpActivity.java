@@ -13,19 +13,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.firebase.client.Firebase;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.UserProfileChangeRequest;
-import com.google.firebase.database.DatabaseReference;
 import com.stuff.bizzy.Models.Database;
-import com.stuff.bizzy.Models.User;
 import com.stuff.bizzy.R;
-
-import java.util.HashMap;
-import java.util.Map;
 
 import static com.stuff.bizzy.Models.Database.mAuth;
 
@@ -64,7 +56,7 @@ public class SignUpActivity extends AppCompatActivity {
         signUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = emailText.getText().toString().trim();
+                final String email = emailText.getText().toString().trim();
                 if (!email.contains("@gatech.edu")) {
                     new AlertDialog.Builder(SignUpActivity.this).setTitle("Error").setMessage("Please enter a valid \"@gatech.edu\" email.")
                             .setNeutralButton("Close", new DialogInterface.OnClickListener() {
@@ -87,12 +79,21 @@ public class SignUpActivity extends AppCompatActivity {
                                 Toast.makeText(SignUpActivity.this, "Authentication failed.",
                                         Toast.LENGTH_SHORT).show();
                             } else {
-                                DatabaseReference ref = Database.getReference("users");
-                                FirebaseUser user =  task.getResult().getUser();
-                                ref.child(user.getUid()).setValue(new User(user));
-                                ref.child(user.getUid() + "/currentGroup").setValue("");
-                                Intent i = new Intent(getApplicationContext(), MapScreen.class);
-                                startActivity(i);
+//                                String user =  task.getResult().getUser().getUid();
+//                                Connection con = new ConnectionClass().CONN();
+//                                if (con == null) {
+//                                    Log.e("Connection", "Couldn't connect to the database.");
+//                                } else {
+//                                    String update = "INSERT INTO dbo.tblUsers (UID, LastName, FirstName, DisplayName) VALUES ('"
+//                                            +user+"', 'Haas', 'Derian', '"+displayText.getText().toString().trim()+"')";
+//                                    try {
+//                                        con.createStatement().executeUpdate(update);
+                                        Intent i = new Intent(getApplicationContext(), MapScreen.class);
+                                        startActivity(i);
+//                                    }catch (SQLException e) {
+//                                        Log.e("Connection", "SQL Exception Occurred: "+e.getMessage());
+//                                    }
+//                                }
                             }
                         }
                     });
