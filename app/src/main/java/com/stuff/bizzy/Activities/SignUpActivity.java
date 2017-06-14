@@ -16,7 +16,10 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
 import com.stuff.bizzy.Models.Database;
+import com.stuff.bizzy.Models.User;
 import com.stuff.bizzy.R;
 
 import static com.stuff.bizzy.Models.Database.mAuth;
@@ -88,8 +91,12 @@ public class SignUpActivity extends AppCompatActivity {
 //                                            +user+"', 'Haas', 'Derian', '"+displayText.getText().toString().trim()+"')";
 //                                    try {
 //                                        con.createStatement().executeUpdate(update);
-                                        Intent i = new Intent(getApplicationContext(), MapScreen.class);
-                                        startActivity(i);
+                                    DatabaseReference ref = Database.getReference("users");
+                                    FirebaseUser user =  task.getResult().getUser();
+                                    ref.child(user.getUid()).setValue(new User(user));
+                                    ref.child(user.getUid() + "/currentGroup").setValue("");
+                                    Intent i = new Intent(getApplicationContext(), MapScreen.class);
+                                    startActivity(i);
 //                                    }catch (SQLException e) {
 //                                        Log.e("Connection", "SQL Exception Occurred: "+e.getMessage());
 //                                    }
